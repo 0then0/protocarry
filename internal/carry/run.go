@@ -83,6 +83,9 @@ func prepare(c Config) (prepared, error) {
 }
 
 func Run(c Config, out string) (*Report, error) {
+	if c.EmptyOutput == "" {
+		c.EmptyOutput = EmptyOutputReject
+	}
 	p, err := prepare(c)
 	if err != nil {
 		return nil, err
@@ -91,7 +94,7 @@ func Run(c Config, out string) (*Report, error) {
 	if err = newEvidence(out); err != nil {
 		return nil, err
 	}
-	r := &Report{Format: 1, Engine: engine(), Runtime: c.Runtime, Message: c.Message, Fields: p.paths, Cases: []Case{}}
+	r := &Report{Format: 2, Engine: engine(), Runtime: c.Runtime, Message: c.Message, Fields: p.paths, Cases: []Case{}}
 	attempts := 0
 	for _, pl := range plans {
 		reason := pl.Reason
@@ -114,7 +117,7 @@ func Run(c Config, out string) (*Report, error) {
 		if item.Attempted {
 			attempts++
 		}
-		if err = persist(filepath.Join(out, pl.ID), c, p.old, p.new, p.paths, &item, pl.Input); err != nil {
+		if err = persist(filepath.Join(out, pl.ID), c, p.old, p.new, p.paths, &item, pl.Input, nil); err != nil {
 			return nil, err
 		}
 		item.Process.Stdout = nil
@@ -198,8 +201,8 @@ func ReplayWithOptions(dir, out string, options ReplayOptions) (*Report, error) 
 	if err = decodeJSON(b, &m); err != nil {
 		return nil, configError(err)
 	}
-	if m.Format != 1 || m.Engine.Tool != Version {
-		return nil, configError(fmt.Errorf("unsupported evidence format/tool version"))
+	if err = m.validateContract(); err != nil {
+		return nil, configError(err)
 	}
 	if _, ok := m.Case.Artifacts["input.bin"]; !ok {
 		return nil, configError(fmt.Errorf("case has no generated input to replay"))
@@ -228,6 +231,9 @@ func ReplayWithOptions(dir, out string, options ReplayOptions) (*Report, error) 
 		}
 	}
 	c := m.Config
+	if c.EmptyOutput == "" {
+		c.EmptyOutput = EmptyOutputReject
+	}
 	if options.WorkingDir != "" {
 		c.WorkingDir, err = filepath.Abs(options.WorkingDir)
 		if err != nil {
@@ -269,10 +275,10 @@ func ReplayWithOptions(dir, out string, options ReplayOptions) (*Report, error) 
 		skip = "unsupported model: " + p.unsupported
 	}
 	item := execute(c, p, pl, skip)
-	if err = persist(filepath.Join(out, "replay"), c, p.old, p.new, p.paths, &item, pl.Input); err != nil {
+	if err = persist(filepath.Join(out, "replay"), c, p.old, p.new, p.paths, &item, pl.Input, &m.Engine); err != nil {
 		return nil, err
 	}
-	r := &Report{Format: 1, Engine: engine(), Runtime: c.Runtime, Message: c.Message, Fields: p.paths, Cases: []Case{item}}
+	r := &Report{Format: 2, Engine: engine(), ReplaySource: &m.Engine, Runtime: c.Runtime, Message: c.Message, Fields: p.paths, Cases: []Case{item}}
 	aggregate(r)
 	if err = writeJSON(filepath.Join(out, "report.json"), r); err != nil {
 		return nil, err

@@ -5,7 +5,7 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/0then0/protocarry/ci.yml?branch=main&label=CI)](https://github.com/0then0/protocarry/actions/workflows/ci.yml)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Go](https://img.shields.io/badge/Go-1.27-00ADD8.svg)](go.mod)
-[![Version](https://img.shields.io/badge/version-0.1.0-0f766e.svg)](docs/contract.md)
+[![Version](https://img.shields.io/badge/version-0.1.1-0f766e.svg)](docs/contract.md)
 
 A producer writes a message with schema v2, an application reads and writes it with schema v1, and a consumer reads it with v2. Every step can succeed while a mapper, a fresh object or a JSON conversion loses fields that v1 does not know.
 
@@ -93,6 +93,21 @@ Descriptor, seed and working-directory paths are relative to the config file. Th
 
 An adapter can refuse a fixture by exiting `75`, optionally explaining why on stderr. ProtoCarry reports `UNRESOLVED`. Other nonzero exits are infrastructure errors, not evidence of data loss.
 
+### Empty messages
+
+A valid Protobuf message with no populated fields can serialize to zero bytes. If your adapter can return such a result, add this option to the configuration:
+
+```json
+"empty_output": "message"
+```
+
+The default, `"reject"`, treats empty stdout as a transport error, preserving v0.1.0 behavior. In `message` mode ProtoCarry decodes zero bytes with the newer schema and checks the same assertions as for any other output:
+
+- Defaults and absent optional fields that remain unchanged pass.
+- A lost nondefault value or explicitly present optional field fails.
+
+The adapter must signal refusal or error explicitly. Zero bytes alone cannot distinguish a valid empty message from an adapter that accidentally wrote nothing. See the [runnable PASS and FAIL examples](validation/protobufjs/README.md#empty-message-controls).
+
 ## Cases and supported fields
 
 ProtoCarry first runs each unchanged seed. It then creates a bounded, deterministic set of cases, varying one selected added field at a time. Every executed case checks all selected fields and controls against that case's input. Optional scalars receive an additional case with an explicitly present default value.
@@ -104,7 +119,7 @@ Version 0.1 supports proto3 additions of:
 - Optional scalars, including explicit zero, false, empty string and empty bytes.
 - Fields inside existing singular messages, and added singular message fields with bounded depth.
 
-Integers compare exactly. Floating-point comparison has no tolerance: signed zeros compare equal, all NaNs compare equal, and infinities retain their sign. NaN payload bits are outside the contract. Implicit scalar defaults do not acquire an invented presence requirement.
+Integers compare exactly. Floating-point comparison has no tolerance: signed zeros compare equal, all NaNs compare equal, and infinities retain their sign. NaN payload bits are outside the contract. Implicit scalar defaults compare by value without a presence assertion.
 
 Missing parent messages prevent case generation by default. Set `allow_create_parents: true` to permit the necessary creation. Skipped cases are reported as unresolved.
 
@@ -131,6 +146,8 @@ Replay verifies saved hashes and expectations and sends the exact saved input. T
 
 Require exit `0` from this command in your regression test. The input and contract remain unchanged. Application resources are not archived; the selected executable and its dependencies must be available. See [evidence and replay](docs/contract.md#evidence-and-replay) for details.
 
+Version 0.1.1 reads evidence format `1` produced by `0.1.0` and format `2` produced by `0.1.1`. Legacy evidence always retains `empty_output: reject`; new evidence saves the effective policy. Replay records the source producer separately from the current engine. Other producer/format combinations are rejected before execution. Compatibility preserves the saved contract, not an outcome across changes to the application or environment.
+
 ## Demo paths
 
 `make demo` runs four paths with the same schemas, seed and contract:
@@ -151,9 +168,9 @@ The included [protobuf.js case](validation/protobufjs/README.md) measures publis
 - 8.6.2 and 8.8.0 with `reader.discardUnknown = false`: PASS.
 - Official Go runtime v1.36.12 binary relay: PASS.
 
-The recorded run contains three checks and three exact-input replays per combination, with stable reports and outcomes. [Measurements](validation/protobufjs/results.json) and [replayable bundles](validation/protobufjs/evidence/) are included.
+The [validation guide](validation/protobufjs/README.md) explains the fixtures, assertions and replay commands. Each combination has three checks and three exact-input replays. The [v0.1.1 measurements](validation/protobufjs/results-v0.1.1.json) also include empty-message controls and replay of all eight saved v0.1.0 cases. [Original measurements](validation/protobufjs/results.json) and [legacy bundles](validation/protobufjs/evidence/) are retained for compatibility testing.
 
-These results show a dependency-upgrade behavior change affecting this contract. Default discard is documented protobuf.js behavior, not evidence of an upstream bug. This is a runtime compatibility case, not an adoption claim or a newly discovered vulnerability.
+Default discard is documented protobuf.js behavior. It produces a ProtoCarry FAIL when the application contract requires the discarded fields to survive. These measurements apply to the tested runtime versions, options and fixtures.
 
 ## How it fits
 
@@ -163,6 +180,6 @@ A [runtime conformance suite](https://github.com/protocolbuffers/protobuf/tree/m
 
 ## Platforms and development
 
-Tested CLI and release targets are macOS arm64 and Linux arm64. Process groups provide bounded timeout and pipe cleanup; they do not isolate arbitrary processes or descendants that escape the group. Empty stdout is a transport error, even if an empty Protobuf message would otherwise be valid.
+Tested CLI and release targets are macOS arm64 and Linux arm64. Process groups provide bounded timeout and pipe cleanup; they do not isolate arbitrary processes or descendants that escape the group. Empty stdout is a transport error under the default `empty_output: reject` contract.
 
 For tests, fixture generation, CI and archive preparation, see the [development guide](docs/development.md). Node.js is required only for the external validation tools. ProtoCarry is licensed under [MIT](LICENSE).

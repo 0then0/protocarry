@@ -22,6 +22,7 @@ jobs:
           cache: npm
           cache-dependency-path: validation/protobufjs/package-lock.json
       - run: make test vet build
+      - run: test "$(bin/protocarry version)" = "ProtoCarry 0.1.1"
       - run: |
           make fixtures
           git diff --exit-code -- examples/demo validation/protobufjs/old.pb validation/protobufjs/new.pb validation/protobufjs/seed.bin validation/protobufjs/nested-seed.bin
@@ -32,8 +33,12 @@ jobs:
           const fs = require('node:fs');
           const recorded = JSON.parse(fs.readFileSync('validation/protobufjs/results.json'));
           const current = JSON.parse(fs.readFileSync('validation/protobufjs/runs/summary.json'));
+          const v011 = JSON.parse(fs.readFileSync('validation/protobufjs/results-v0.1.1.json'));
           const outcomes = x => x.records.map(r => [r.runtime,r.version,r.option,r.shape,r.outcome]);
           if (JSON.stringify(outcomes(recorded)) !== JSON.stringify(outcomes(current))) throw new Error('external behavior changed; inspect evidence before updating the baseline');
+          const empty = x => x.empty_records.map(r => [r.runtime,r.version,r.option,r.shape,r.empty_output,r.outcome]);
+          if (JSON.stringify(empty(v011)) !== JSON.stringify(empty(current))) throw new Error('empty-message behavior changed');
+          if (current.tool.tool !== '0.1.1' || current.legacy_replays.length !== 8) throw new Error('producer/legacy validation incomplete');
           JS
       - uses: actions/upload-artifact@v7
         if: always()

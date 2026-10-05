@@ -33,7 +33,7 @@ The demo and external validation include descriptor sets and binary seeds. Regen
 make fixtures
 ```
 
-This developer utility uses official Go descriptor types. It is not a parser or a feature of the CLI. The companion `.proto` files describe the same schemas. Inspect any generated fixture differences before committing them.
+The fixture generator builds descriptor sets using official Go descriptor types. The companion `.proto` files document the schemas. CI checks that regeneration leaves the checked-in fixtures unchanged.
 
 ```sh
 make demo
@@ -55,9 +55,9 @@ The runner writes `validation/protobufjs/runs/` and refuses to reuse it. Move pr
 
 ## CI
 
-The [CI workflow](../.github/workflows/ci.yml) runs on macOS and Linux arm64 runners. It checks Go tests and vet, reproducible fixture generation, demos and external validation. A separate assertion compares measured runtime outcomes with the committed regression baseline. Evidence is uploaded as a workflow artifact, including when a check fails.
+The [CI workflow](../.github/workflows/ci.yml) runs on macOS and Linux arm64 runners. It checks Go tests and vet, reproducible fixture generation, demos and external validation. Separate assertions compare measured runtime outcomes with the v0.1.0 baseline and v0.1.1 empty-message measurements. Both native runners also exercise authentic legacy replay fixtures. Evidence is uploaded as a workflow artifact, including when a check fails.
 
-When a runtime outcome changes, inspect its assertions, input/output and recorded dependency versions before updating the baseline. Changing an expectation is not a substitute for understanding a changed contract result.
+When a runtime outcome changes, inspect its assertions, input/output and recorded dependency versions before updating the baseline. Update a recorded outcome only after identifying and documenting the reason for the change. Keep the legacy replay fixtures unchanged.
 
 ## Prepare binary archives
 
@@ -67,19 +67,19 @@ Run on the native target platform:
 make release
 ```
 
-The script runs Go tests and vet, builds a standalone binary, checks its version, and writes an archive and SHA-256 checksum under `bin/`. Each archive contains `protocarry`, `README.md` and `LICENSE`. The repository contains the linked documentation, examples and validation data.
+The script runs Go tests and vet, builds a standalone binary, requires version 0.1.1, and writes an archive and SHA-256 checksum under `bin/`. Each archive contains `protocarry`, `README.md` and `LICENSE`. The repository contains the linked documentation, examples and validation data.
 
 For example, verify a macOS arm64 archive after copying both files into your download directory:
 
 ```sh
-shasum -a 256 -c protocarry_0.1.0_darwin_arm64.tar.gz.sha256
-tar -xzf protocarry_0.1.0_darwin_arm64.tar.gz
+shasum -a 256 -c protocarry_0.1.1_darwin_arm64.tar.gz.sha256
+tar -xzf protocarry_0.1.1_darwin_arm64.tar.gz
 ./protocarry version
 ```
 
-On Linux, use `sha256sum -c protocarry_0.1.0_linux_arm64.tar.gz.sha256`.
+On Linux, use `sha256sum -c protocarry_0.1.1_linux_arm64.tar.gz.sha256`.
 
-The [release workflow](../.github/workflows/release.yml) prepares artifacts for the same two platforms. A manual run only prepares artifacts. Pushing a version tag publishes a GitHub release after both native builds and checksum checks pass. The tag must match the binary version, and release notes must exist at `docs/releases/<tag>.md`. Only the publication job has repository write permission. The local script never publishes a release.
+The [release workflow](../.github/workflows/release.yml) prepares artifacts for the same two platforms. A manual run only prepares artifacts. Both native jobs verify the checksum and execute the extracted binary before uploading. Pushing a version tag publishes a GitHub release after both native builds and checksum checks pass. The tag must match the binary version, and release notes must exist at `docs/releases/<tag>.md`. Only the publication job has repository write permission. The local script never publishes a release.
 
 ## Interpreting verification
 

@@ -143,7 +143,7 @@ func runProcess(c Config, input []byte) Process {
 		r.Error = fmt.Sprintf("adapter did not complete successfully: %v", waitErr)
 	case w.n != len(input) || w.err != nil:
 		r.Error = "adapter exited before receiving complete input"
-	case len(r.Stdout) == 0:
+	case len(r.Stdout) == 0 && c.EmptyOutput != EmptyOutputMessage:
 		r.Error = "empty stdout: no transport evidence"
 	}
 	return r

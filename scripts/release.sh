@@ -2,14 +2,16 @@
 # Prepare native binaries and archives, never publish a GitHub release.
 set -eu
 platform="$(go env GOOS)_$(go env GOARCH)"
+version="0.1.1"
 case "$platform" in darwin_arm64|linux_arm64) ;; *) echo "Unvalidated release platform: $platform" >&2; exit 1 ;; esac
 go test -mod=readonly -race ./...
 go vet ./...
 archive_dir="bin/release/$platform"
 mkdir -p "$archive_dir"
 CGO_ENABLED=0 go build -mod=readonly -trimpath -buildvcs=false -ldflags='-s -w' -o "$archive_dir/protocarry" ./cmd/protocarry
+test "$("$archive_dir/protocarry" version)" = "ProtoCarry $version"
 "$archive_dir/protocarry" version
-archive="bin/protocarry_0.1.0_${platform}.tar.gz"
+archive="bin/protocarry_${version}_${platform}.tar.gz"
 tar -czf "$archive" -C "$archive_dir" protocarry -C "$(pwd)" README.md LICENSE
 archive_name="$(basename "$archive")"
 (

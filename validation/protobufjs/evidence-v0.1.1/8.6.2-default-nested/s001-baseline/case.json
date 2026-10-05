@@ -1,0 +1,176 @@
+{
+  "format_version": 2,
+  "engine": {
+    "tool": "0.1.1",
+    "go": "go1.27.1",
+    "platform": "darwin/arm64",
+    "protobuf": "v1.36.12"
+  },
+  "config": {
+    "old_descriptor": "old.pb",
+    "new_descriptor": "new.pb",
+    "message": "validation.NestedEnvelope",
+    "seeds": [
+      "input.bin"
+    ],
+    "adapter": [
+      "/Users/user/.local/share/fnm/node-versions/v24.21.0/installation/bin/node",
+      "/Users/user/Dev/protocarry/validation/protobufjs/relay.cjs",
+      "pb862",
+      "default",
+      "validation.NestedEnvelope"
+    ],
+    "working_dir": "/Users/user/Dev/protocarry",
+    "fields": [
+      "child.future_note"
+    ],
+    "controls": [
+      "id",
+      "child.label"
+    ],
+    "allow_create_parents": false,
+    "empty_output": "reject",
+    "limits": {
+      "timeout_ms": 2000,
+      "max_cases": 64,
+      "max_depth": 8,
+      "max_message_bytes": 1048576,
+      "max_value_bytes": 64,
+      "max_stdout_bytes": 1048576,
+      "max_stderr_bytes": 65536
+    },
+    "validation_runtime": {
+      "name": "protobuf.js",
+      "version": "8.6.2",
+      "options": "default"
+    }
+  },
+  "contract": [
+    {
+      "path": "child.future_note",
+      "field_numbers": [
+        3,
+        2
+      ],
+      "absent_in_old_schema": true
+    },
+    {
+      "path": "id",
+      "field_numbers": [
+        1
+      ],
+      "absent_in_old_schema": false
+    },
+    {
+      "path": "child.label",
+      "field_numbers": [
+        3,
+        1
+      ],
+      "absent_in_old_schema": false
+    }
+  ],
+  "case": {
+    "id": "s001-baseline",
+    "seed": "/Users/user/Dev/protocarry/validation/protobufjs/nested-seed.bin",
+    "kind": "baseline",
+    "attempted": true,
+    "executed": true,
+    "outcome": "FAIL",
+    "reason": "preservation contract violated",
+    "evidence": "s001-baseline",
+    "assertions": [
+      {
+        "path": "child.future_note",
+        "field_numbers": [
+          3,
+          2
+        ],
+        "absent_in_old_schema": true,
+        "expected": {
+          "parent_presence": [
+            true
+          ],
+          "value": {
+            "kind": "string",
+            "value": "future"
+          }
+        },
+        "actual": {
+          "parent_presence": [
+            true
+          ],
+          "value": {
+            "kind": "string",
+            "value": ""
+          }
+        },
+        "preserved": false
+      },
+      {
+        "path": "id",
+        "field_numbers": [
+          1
+        ],
+        "absent_in_old_schema": false,
+        "expected": {
+          "parent_presence": [],
+          "value": {
+            "kind": "string",
+            "value": "A"
+          }
+        },
+        "actual": {
+          "parent_presence": [],
+          "value": {
+            "kind": "string",
+            "value": "A"
+          }
+        },
+        "preserved": true
+      },
+      {
+        "path": "child.label",
+        "field_numbers": [
+          3,
+          1
+        ],
+        "absent_in_old_schema": false,
+        "expected": {
+          "parent_presence": [
+            true
+          ],
+          "value": {
+            "kind": "string",
+            "value": "seed"
+          }
+        },
+        "actual": {
+          "parent_presence": [
+            true
+          ],
+          "value": {
+            "kind": "string",
+            "value": "seed"
+          }
+        },
+        "preserved": true
+      }
+    ],
+    "process": {
+      "exit_code": 0,
+      "started": true,
+      "timeout": false,
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "input_bytes_written": 19
+    },
+    "sha256": {
+      "input.bin": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+      "new.pb": "76a7524696372fbff96f0bb2adc5ca247099d08789d6814bcaadfe6f9c934a2f",
+      "old.pb": "3fe775fb6435b588ffdbddbf126bc9315bdc9cf8364d22e7d238f595eeb8b7c8",
+      "output.bin": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+      "stderr.log": "5e156d0093a118f80046a2a4bff981e304fa8aa303db56719711399bc0d6a0c1"
+    }
+  }
+}

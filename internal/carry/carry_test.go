@@ -59,8 +59,15 @@ func TestAdapterProcess(t *testing.T) {
 	case "stderr-limit":
 		_, _ = os.Stderr.Write(bytes.Repeat([]byte{'x'}, 2<<20))
 		os.Exit(0)
-	case "leaked-pipe":
-		child := exec.Command("sleep", "30")
+	case "leaked-pipe", "detached-pipe":
+		duration := "30"
+		if mode == "detached-pipe" {
+			duration = "1"
+		}
+		child := exec.Command("sleep", duration)
+		if mode == "detached-pipe" {
+			prepareProcess(child)
+		}
 		child.Stdout = os.Stdout
 		child.Stderr = os.Stderr
 		if err := child.Start(); err != nil {
@@ -321,29 +328,39 @@ func TestSubprocessFailures(t *testing.T) {
 	for _, tc := range []struct {
 		mode string
 		want Outcome
-	}{{"reject", Unresolved}, {"nonzero", InfrastructureError}, {"empty", InfrastructureError}, {"malformed", InfrastructureError}, {"stderr-okay", Pass}, {"stdout-limit", InfrastructureError}, {"stderr-limit", InfrastructureError}, {"no-read", InfrastructureError}, {"timeout", InfrastructureError}, {"leaked-pipe", InfrastructureError}} {
-		t.Run(tc.mode, func(t *testing.T) {
-			c := setup(t, tc.mode)
-			c.Fields = []string{"routing_hint"}
-			c.Controls = []string{"id"}
-			c.Limits.MaxCases = 1
-			if tc.mode == "no-read" || tc.mode == "timeout" {
-				c.Limits.TimeoutMS = 100
-			}
-			r, _ := check(t, c)
-			if r.Cases[0].Outcome != tc.want {
-				t.Fatalf("got %+v", r.Cases[0])
-			}
-			if tc.mode == "stdout-limit" && !r.Cases[0].Process.StdoutTruncated {
-				t.Fatal("missing stdout truncation")
-			}
-			if tc.mode == "stderr-limit" && !r.Cases[0].Process.StderrTruncated {
-				t.Fatal("missing stderr truncation")
-			}
-			if tc.mode == "timeout" && !r.Cases[0].Process.Timeout {
-				t.Fatal("missing timeout")
-			}
-		})
+	}{{"reject", Unresolved}, {"nonzero", InfrastructureError}, {"empty", InfrastructureError}, {"malformed", InfrastructureError}, {"stderr-okay", Pass}, {"stdout-limit", InfrastructureError}, {"stderr-limit", InfrastructureError}, {"no-read", InfrastructureError}, {"timeout", InfrastructureError}, {"leaked-pipe", InfrastructureError}, {"detached-pipe", InfrastructureError}} {
+		for _, policy := range []string{EmptyOutputReject, EmptyOutputMessage} {
+			t.Run(tc.mode+"/"+policy, func(t *testing.T) {
+				c := setup(t, tc.mode)
+				c.EmptyOutput = policy
+				c.Fields = []string{"routing_hint"}
+				c.Controls = []string{"id"}
+				c.Limits.MaxCases = 1
+				if tc.mode == "no-read" || tc.mode == "timeout" {
+					c.Limits.TimeoutMS = 100
+				}
+				r, _ := check(t, c)
+				want := tc.want
+				if (tc.mode == "empty" || tc.mode == "leaked-pipe") && policy == EmptyOutputMessage {
+					want = Fail
+				}
+				if r.Cases[0].Outcome != want {
+					t.Fatalf("got %+v", r.Cases[0])
+				}
+				if tc.mode == "stdout-limit" && !r.Cases[0].Process.StdoutTruncated {
+					t.Fatal("missing stdout truncation")
+				}
+				if tc.mode == "stderr-limit" && !r.Cases[0].Process.StderrTruncated {
+					t.Fatal("missing stderr truncation")
+				}
+				if tc.mode == "timeout" && !r.Cases[0].Process.Timeout {
+					t.Fatal("missing timeout")
+				}
+				if tc.mode == "detached-pipe" && r.Cases[0].Reason != "incomplete pipe drain (possibly an inherited pipe)" {
+					t.Fatal("detached pipe did not exercise incomplete drain", r.Cases[0])
+				}
+			})
+		}
 	}
 	t.Run("missing-executable", func(t *testing.T) {
 		c := setup(t, "preserve")
@@ -356,6 +373,7 @@ func TestSubprocessFailures(t *testing.T) {
 	})
 	t.Run("partial-stdin", func(t *testing.T) {
 		c := setup(t, "early")
+		c.EmptyOutput = EmptyOutputMessage
 		r := runProcess(c, bytes.Repeat([]byte{'x'}, 1<<20))
 		if r.Error != "adapter exited before receiving complete input" || r.InputBytesWritten >= 1<<20 {
 			t.Fatalf("partial input: %+v", r)
@@ -363,6 +381,7 @@ func TestSubprocessFailures(t *testing.T) {
 	})
 	t.Run("blocked-stdin", func(t *testing.T) {
 		c := setup(t, "no-read")
+		c.EmptyOutput = EmptyOutputMessage
 		c.Limits.TimeoutMS = 100
 		start := time.Now()
 		r := runProcess(c, bytes.Repeat([]byte{'x'}, 1<<20))

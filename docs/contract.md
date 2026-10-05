@@ -1,6 +1,6 @@
 # Preservation contract reference
 
-This reference describes ProtoCarry v0.1 configuration, comparison rules, limits and evidence. For a runnable introduction, see the [README](../README.md).
+This reference describes ProtoCarry v0.1.1 configuration, comparison rules, limits and evidence. For a runnable introduction, see the [README](../README.md).
 
 ## Configuration
 
@@ -20,6 +20,7 @@ Optional keys:
 - `controls`: paths to fields known to the older schema that must also be preserved.
 - `working_dir`: adapter working directory; defaults to the configuration directory.
 - `allow_create_parents`: defaults to `false`; permits creating missing singular ancestors in generated cases when `true`.
+- `empty_output`: `"reject"` (default) or `"message"`. The latter explicitly permits a successful adapter's zero-byte stdout to represent an empty Protobuf root message. Omitting the key selects `"reject"`; other values, including `null` and an empty string, are configuration errors before any adapter starts.
 - `limits`: resource limits listed below. Omitted limit keys receive defaults; explicit zero is invalid.
 - `validation_runtime`: an object with `name`, `version` and `options` strings describing the adapter runtime. This is a declared label, not an observed version check. An adapter can log observed versions on stderr.
 
@@ -89,9 +90,13 @@ ProtoCarry does not impose adapter memory/CPU quotas or restrict its network acc
 
 ## Adapter protocol and cleanup
 
-One process receives one unframed binary root message on stdin. It must return a nonempty, complete binary message of the same logical root on stdout. Logs belong on stderr. Protobuf binary has no root-type tag, so returning the intended type is an adapter requirement.
+One process receives one unframed binary root message on stdin. It must return a complete binary message of the same logical root on stdout. The default `empty_output: reject` requires a nonempty result, preserving v0.1.0 behavior. Logs belong on stderr. Protobuf binary has no root-type tag, so returning the intended type is an adapter requirement.
 
-Exit `75` declares a controlled refusal. It may occur before reading all stdin; no assertion is evaluated. Other nonzero exits, empty or malformed stdout, incomplete input writes and resource-limit violations are infrastructure errors. An empty result is a transport error even when an empty root could be valid Protobuf.
+With `empty_output: message`, zero bytes go through the ordinary newer-schema decoder, output resource checks and semantic oracle. No outcome is assigned just from output length. An absent implicit scalar retains its default and passes; losing a nondefault scalar fails with the default as actual value. An absent optional field stays absent and passes; losing an explicitly present default fails on presence. Parent and message presence are checked as usual.
+
+Successful exit means stdout is the result under the selected contract. Zero bytes alone cannot distinguish a valid empty root from an internal mistake that wrote nothing. The adapter must explicitly signal refusal or error; ProtoCarry does not diagnose that internal cause.
+
+Exit `75` declares a controlled refusal. It may occur before reading all stdin; no assertion is evaluated even in `message` mode. Other nonzero exits, malformed nonempty stdout, incomplete input writes and resource-limit violations remain infrastructure errors. Under `reject`, empty stdout is also an infrastructure error. Timeout, truncation and incomplete pipe drain keep their existing handling in both modes.
 
 Stdin, stdout and stderr are serviced concurrently. A successful pipe write is evidence of transport completion, not proof that the application consumed the bytes.
 
@@ -118,7 +123,7 @@ The output directory must be new. Files use private permissions. The aggregate `
 - `input.bin` when an input is available.
 - `output.bin` and `stderr.log` when the adapter started, retained up to their limits.
 - `old.pb` and `new.pb` descriptor sets.
-- `case.json` with effective argv, working directory, limits, versions, field names/numbers, expected/actual observations, process status and artifact SHA-256 hashes.
+- `case.json` with effective argv, working directory, limits, `empty_output` policy, versions, field names/numbers, expected/actual observations, process status and artifact SHA-256 hashes.
 
 An output file can be empty, malformed or truncated; its case outcome explains the problem. A skipped generated case may have neither input nor output. Filesystem failures can leave a partial bundle without an aggregate report. The CLI prints its final result only after evidence has been saved successfully.
 
@@ -128,7 +133,16 @@ Reports omit timestamps and durations. Successful reports are stable within the 
 protocarry replay -case CASE_DIR -out NEW_DIR
 ```
 
-Replay checks artifact hashes, recomputes saved expectations from the input and descriptors, and executes only the exact saved input. It does not generate cases. Saved evidence must use the supported format and tool version; v0.1 accepts format `1` from tool `0.1.0`.
+Replay checks artifact hashes and mandatory input/descriptors, recomputes saved expectations from the input and descriptors, verifies assertion paths, field numbers, addition status and expected values/presence, and executes only the exact saved input. It does not generate cases.
+
+v0.1.1 explicitly accepts only these evidence contracts:
+
+- Format `1`, producer `engine.tool: "0.1.0"`, without an `empty_output` setting. Replay supplies the legacy `reject` policy.
+- Format `2`, producer `engine.tool: "0.1.1"`, with an explicit saved `empty_output` of `reject` or `message`.
+
+New reports and case bundles use format `2` to record the empty-output contract. Replay checks the format, producer and saved policy together. Unknown or unsupported combinations fail preflight before adapter execution, including a future producer using an otherwise known format number. v0.1.0 cannot read format `2` bundles.
+
+The source bundle's producer metadata is retained unchanged. New replay evidence records that immediate source in `replay_source_engine`, while `engine` identifies the current execution. The effective policy is saved in the new case configuration and reused on later replays. Compatibility means the saved contract can be checked; application, runtime or environment changes may change its outcome.
 
 For relocation or a replacement adapter, use `-working-dir DIR` and `-adapter JSON_ARGV`. Replacing the adapter clears the old declared runtime label. The input, descriptors and preservation contract stay unchanged.
 

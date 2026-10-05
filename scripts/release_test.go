@@ -37,7 +37,7 @@ case "$1" in
     while [ "$#" -gt 0 ]; do
       if [ "$1" = '-o' ]; then
         shift
-        printf '#!/bin/sh\nprintf "ProtoCarry 0.1.0\\n"\n' > "$1"
+        printf '#!/bin/sh\nprintf "ProtoCarry 0.1.1\\n"\n' > "$1"
         chmod +x "$1"
         exit 0
       fi
@@ -62,7 +62,7 @@ esac
 		t.Fatalf("release: %v\n%s", err, output)
 	}
 	download := t.TempDir()
-	archive := "protocarry_0.1.0_linux_arm64.tar.gz"
+	archive := "protocarry_0.1.1_linux_arm64.tar.gz"
 	for _, name := range []string{archive, archive + ".sha256"} {
 		data, err := os.ReadFile(filepath.Join(root, "bin", name))
 		if err != nil {

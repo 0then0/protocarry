@@ -57,25 +57,27 @@ type Case struct {
 	Artifacts  map[string]string `json:"sha256"`
 }
 type Report struct {
-	Format     int             `json:"format_version"`
-	Engine     Engine          `json:"engine"`
-	Runtime    Runtime         `json:"validation_runtime_declared"`
-	Message    string          `json:"message"`
-	Fields     []Path          `json:"contract"`
-	Outcome    Outcome         `json:"outcome"`
-	Incomplete bool            `json:"incomplete"`
-	Counts     map[Outcome]int `json:"counts"`
-	Planned    int             `json:"planned_cases"`
-	Attempted  int             `json:"attempted_cases"`
-	Executed   int             `json:"executed_cases"`
-	Cases      []Case          `json:"cases"`
+	Format       int             `json:"format_version"`
+	Engine       Engine          `json:"engine"`
+	ReplaySource *Engine         `json:"replay_source_engine,omitempty"`
+	Runtime      Runtime         `json:"validation_runtime_declared"`
+	Message      string          `json:"message"`
+	Fields       []Path          `json:"contract"`
+	Outcome      Outcome         `json:"outcome"`
+	Incomplete   bool            `json:"incomplete"`
+	Counts       map[Outcome]int `json:"counts"`
+	Planned      int             `json:"planned_cases"`
+	Attempted    int             `json:"attempted_cases"`
+	Executed     int             `json:"executed_cases"`
+	Cases        []Case          `json:"cases"`
 }
 type Manifest struct {
-	Format   int    `json:"format_version"`
-	Engine   Engine `json:"engine"`
-	Config   Config `json:"config"`
-	Contract []Path `json:"contract"`
-	Case     Case   `json:"case"`
+	Format       int     `json:"format_version"`
+	Engine       Engine  `json:"engine"`
+	ReplaySource *Engine `json:"replay_source_engine,omitempty"`
+	Config       Config  `json:"config"`
+	Contract     []Path  `json:"contract"`
+	Case         Case    `json:"case"`
 }
 
 func hash(b []byte) string { x := sha256.Sum256(b); return hex.EncodeToString(x[:]) }
@@ -101,7 +103,7 @@ func newEvidence(dir string) error {
 	}
 	return nil
 }
-func persist(dir string, c Config, sold, snew Schema, paths []Path, item *Case, input []byte) error {
+func persist(dir string, c Config, sold, snew Schema, paths []Path, item *Case, input []byte, source *Engine) error {
 	if err := os.Mkdir(dir, 0700); err != nil {
 		return err
 	}
@@ -124,8 +126,21 @@ func persist(dir string, c Config, sold, snew Schema, paths []Path, item *Case, 
 	saved.OldDescriptor = "old.pb"
 	saved.NewDescriptor = "new.pb"
 	saved.Seeds = []string{"input.bin"}
-	m := Manifest{1, engine(), saved, paths, *item}
+	m := Manifest{Format: 2, Engine: engine(), ReplaySource: source, Config: saved, Contract: paths, Case: *item}
 	return writeJSON(filepath.Join(dir, "case.json"), m)
+}
+
+// Compatibility is an explicit producer/contract allowlist, not a version range.
+func (m Manifest) validateContract() error {
+	switch {
+	case m.Format == 1 && m.Engine.Tool == "0.1.0" && m.Config.EmptyOutput == "":
+		return nil // Legacy evidence always rejects empty stdout.
+	case m.Format == 2 && m.Engine.Tool == "0.1.1" &&
+		(m.Config.EmptyOutput == EmptyOutputReject || m.Config.EmptyOutput == EmptyOutputMessage):
+		return nil
+	default:
+		return fmt.Errorf("unsupported evidence format/producer/empty_output contract: %d/%s/%q", m.Format, m.Engine.Tool, m.Config.EmptyOutput)
+	}
 }
 
 func aggregate(r *Report) {

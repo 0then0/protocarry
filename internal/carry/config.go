@@ -11,8 +11,13 @@ import (
 	"strings"
 )
 
-const Version = "0.1.0"
+const Version = "0.1.1"
 const descriptorLimit = 8 << 20
+
+const (
+	EmptyOutputReject  = "reject"
+	EmptyOutputMessage = "message"
+)
 
 type Limits struct {
 	TimeoutMS       int `json:"timeout_ms"`
@@ -41,6 +46,7 @@ type Config struct {
 	Fields             []string `json:"fields"`
 	Controls           []string `json:"controls"`
 	AllowCreateParents bool     `json:"allow_create_parents"`
+	EmptyOutput        string   `json:"empty_output,omitempty"`
 	Limits             Limits   `json:"limits"`
 	Runtime            Runtime  `json:"validation_runtime"`
 }
@@ -69,8 +75,23 @@ func LoadConfig(path string) (Config, error) {
 	}
 	// Defaults also apply when only some limit keys are provided. Explicit zero is invalid.
 	c.Limits = DefaultLimits()
-	if err := decodeJSON(b, &c); err != nil {
+	c.EmptyOutput = EmptyOutputReject
+	// Keep the raw option so an omitted key defaults, but explicit null is invalid.
+	wire := struct {
+		*Config
+		EmptyOutput json.RawMessage `json:"empty_output"`
+	}{Config: &c}
+	if err := decodeJSON(b, &wire); err != nil {
 		return c, err
+	}
+	if len(wire.EmptyOutput) > 0 {
+		c.EmptyOutput = ""
+		if err := json.Unmarshal(wire.EmptyOutput, &c.EmptyOutput); err != nil {
+			return c, fmt.Errorf("empty_output must be reject or message: %w", err)
+		}
+	}
+	if c.EmptyOutput == "" {
+		return c, fmt.Errorf("empty_output must be reject or message")
 	}
 	base, err := filepath.Abs(filepath.Dir(path))
 	if err != nil {
@@ -100,6 +121,9 @@ func LoadConfig(path string) (Config, error) {
 }
 
 func (c Config) Validate() error {
+	if c.EmptyOutput != "" && c.EmptyOutput != EmptyOutputReject && c.EmptyOutput != EmptyOutputMessage {
+		return fmt.Errorf("empty_output must be reject or message")
+	}
 	if c.OldDescriptor == "" || c.NewDescriptor == "" || c.Message == "" {
 		return fmt.Errorf("old_descriptor, new_descriptor and message are required")
 	}
