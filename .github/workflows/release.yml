@@ -1,6 +1,8 @@
-name: Prepare release binaries
+name: Release binaries
 on:
   workflow_dispatch:
+  push:
+    tags: ['v*']
 permissions:
   contents: read
 jobs:
@@ -15,9 +17,38 @@ jobs:
         with:
           go-version: '1.27.1'
       - run: make release
+      - name: Check tag matches binary version
+        if: github.event_name == 'push'
+        run: |
+          test "$(bin/release/$(go env GOOS)_$(go env GOARCH)/protocarry version)" = "ProtoCarry ${GITHUB_REF_NAME#v}"
       - uses: actions/upload-artifact@v7
         with:
           name: protocarry-${{ matrix.runner }}
           path: |
             bin/protocarry_*.tar.gz
             bin/protocarry_*.tar.gz.sha256
+          if-no-files-found: error
+  publish:
+    if: github.event_name == 'push'
+    needs: prepare
+    runs-on: ubuntu-24.04-arm
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v7
+      - name: Download and verify both native archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download "$GITHUB_RUN_ID" --name protocarry-macos-15 --dir artifacts/darwin
+          gh run download "$GITHUB_RUN_ID" --name protocarry-ubuntu-24.04-arm --dir artifacts/linux
+          (cd artifacts/darwin && sha256sum -c protocarry_*.tar.gz.sha256)
+          (cd artifacts/linux && sha256sum -c protocarry_*.tar.gz.sha256)
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" artifacts/darwin/* artifacts/linux/* \
+            --verify-tag --title "ProtoCarry $GITHUB_REF_NAME" \
+            --notes-file "docs/releases/$GITHUB_REF_NAME.md"

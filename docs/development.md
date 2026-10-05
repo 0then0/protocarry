@@ -79,7 +79,7 @@ tar -xzf protocarry_0.1.0_darwin_arm64.tar.gz
 
 On Linux, use `sha256sum -c protocarry_0.1.0_linux_arm64.tar.gz.sha256`.
 
-The manual [archive workflow](../.github/workflows/release.yml) prepares artifacts for the same two platforms. Neither the script nor this workflow publishes a GitHub release.
+The [release workflow](../.github/workflows/release.yml) prepares artifacts for the same two platforms. A manual run only prepares artifacts. Pushing a version tag publishes a GitHub release after both native builds and checksum checks pass. The tag must match the binary version, and release notes must exist at `docs/releases/<tag>.md`. Only the publication job has repository write permission. The local script never publishes a release.
 
 ## Interpreting verification
 
