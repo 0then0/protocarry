@@ -1,0 +1,12 @@
+{
+  "name": "protocarry-external-protobufjs-validation",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pinned upstream binary relay compatibility case; not part of the CLI",
+  "scripts": { "test": "node --test validate.test.cjs", "validate": "node validate.cjs" },
+  "dependencies": {
+    "pb861": "npm:protobufjs@8.6.1",
+    "pb862": "npm:protobufjs@8.6.2",
+    "pb880": "npm:protobufjs@8.8.0"
+  }
+}

@@ -1,0 +1,4503 @@
+{
+  "format_version": 1,
+  "node": "v24.21.0",
+  "tool": {
+    "tool": "0.1.0",
+    "go": "go1.27.1",
+    "platform": "darwin/arm64",
+    "protobuf": "v1.36.12"
+  },
+  "package_lock_sha256": "5d4386fa46f03124f27c34e403ba00dc87837ac1eb0691260e227c1148d9a98a",
+  "old_descriptor_sha256": "3fe775fb6435b588ffdbddbf126bc9315bdc9cf8364d22e7d238f595eeb8b7c8",
+  "new_descriptor_sha256": "76a7524696372fbff96f0bb2adc5ca247099d08789d6814bcaadfe6f9c934a2f",
+  "records": [
+    {
+      "runtime": "protobuf.js",
+      "version": "8.6.1",
+      "option": "default",
+      "shape": "simple",
+      "trials": 3,
+      "outcome": "PASS",
+      "stable": true,
+      "results": [
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "27ca680d4e5118fd69ba88429ce1be0f7bc3d8e61c7878e9d672f4eb10453876",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "27ca680d4e5118fd69ba88429ce1be0f7bc3d8e61c7878e9d672f4eb10453876",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "27ca680d4e5118fd69ba88429ce1be0f7bc3d8e61c7878e9d672f4eb10453876",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "protobuf.js",
+      "version": "8.6.1",
+      "option": "default",
+      "shape": "nested",
+      "trials": 3,
+      "outcome": "PASS",
+      "stable": true,
+      "results": [
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "c491e87c9c3fbaf44eed666571f338ede2c2119cb60d1929a9aa151514256710",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "c491e87c9c3fbaf44eed666571f338ede2c2119cb60d1929a9aa151514256710",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "c491e87c9c3fbaf44eed666571f338ede2c2119cb60d1929a9aa151514256710",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "protobuf.js",
+      "version": "8.6.2",
+      "option": "default",
+      "shape": "simple",
+      "trials": 3,
+      "outcome": "FAIL",
+      "stable": true,
+      "results": [
+        {
+          "outcome": "FAIL",
+          "replay_outcome": "FAIL",
+          "report_sha256": "50a7f9344ad396a9282e7e63e8d166ce7b3ab1a142dc03e1b61403113e82c36b",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "FAIL",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "7d54634aa0a751d16fe93af1f47da48bd3fda8665049dad1c5b0a128f4f80e8e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "FAIL",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "7d54634aa0a751d16fe93af1f47da48bd3fda8665049dad1c5b0a128f4f80e8e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "FAIL",
+          "replay_outcome": "FAIL",
+          "report_sha256": "50a7f9344ad396a9282e7e63e8d166ce7b3ab1a142dc03e1b61403113e82c36b",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "FAIL",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "7d54634aa0a751d16fe93af1f47da48bd3fda8665049dad1c5b0a128f4f80e8e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "FAIL",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "7d54634aa0a751d16fe93af1f47da48bd3fda8665049dad1c5b0a128f4f80e8e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "FAIL",
+          "replay_outcome": "FAIL",
+          "report_sha256": "50a7f9344ad396a9282e7e63e8d166ce7b3ab1a142dc03e1b61403113e82c36b",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "FAIL",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "7d54634aa0a751d16fe93af1f47da48bd3fda8665049dad1c5b0a128f4f80e8e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "FAIL",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "7d54634aa0a751d16fe93af1f47da48bd3fda8665049dad1c5b0a128f4f80e8e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "protobuf.js",
+      "version": "8.6.2",
+      "option": "default",
+      "shape": "nested",
+      "trials": 3,
+      "outcome": "FAIL",
+      "stable": true,
+      "results": [
+        {
+          "outcome": "FAIL",
+          "replay_outcome": "FAIL",
+          "report_sha256": "6a369cc710b636cdcf6f9ecf790e5c688aad09f24f8fd5e92fb8ea3c829718de",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "FAIL",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "FAIL",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "FAIL",
+          "replay_outcome": "FAIL",
+          "report_sha256": "6a369cc710b636cdcf6f9ecf790e5c688aad09f24f8fd5e92fb8ea3c829718de",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "FAIL",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "FAIL",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "FAIL",
+          "replay_outcome": "FAIL",
+          "report_sha256": "6a369cc710b636cdcf6f9ecf790e5c688aad09f24f8fd5e92fb8ea3c829718de",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "FAIL",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "FAIL",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "protobuf.js",
+      "version": "8.6.2",
+      "option": "preserve",
+      "shape": "simple",
+      "trials": 3,
+      "outcome": "PASS",
+      "stable": true,
+      "results": [
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "d99de1d6bce05e5049199c2997367a6647cffb949436b556c3b3318c7600aec7",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "d99de1d6bce05e5049199c2997367a6647cffb949436b556c3b3318c7600aec7",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "d99de1d6bce05e5049199c2997367a6647cffb949436b556c3b3318c7600aec7",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "protobuf.js",
+      "version": "8.6.2",
+      "option": "preserve",
+      "shape": "nested",
+      "trials": 3,
+      "outcome": "PASS",
+      "stable": true,
+      "results": [
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "bc8da90ded68e81c287cc34e30db5f136169c4062773ee383f923a298820cac1",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "bc8da90ded68e81c287cc34e30db5f136169c4062773ee383f923a298820cac1",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "bc8da90ded68e81c287cc34e30db5f136169c4062773ee383f923a298820cac1",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "protobuf.js",
+      "version": "8.8.0",
+      "option": "default",
+      "shape": "simple",
+      "trials": 3,
+      "outcome": "FAIL",
+      "stable": true,
+      "results": [
+        {
+          "outcome": "FAIL",
+          "replay_outcome": "FAIL",
+          "report_sha256": "8e99bce3504ce5f4058b51cebc0dc4b16eaa5a30b15cec28162be98e7d75643a",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "FAIL",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "7d54634aa0a751d16fe93af1f47da48bd3fda8665049dad1c5b0a128f4f80e8e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "FAIL",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "7d54634aa0a751d16fe93af1f47da48bd3fda8665049dad1c5b0a128f4f80e8e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "FAIL",
+          "replay_outcome": "FAIL",
+          "report_sha256": "8e99bce3504ce5f4058b51cebc0dc4b16eaa5a30b15cec28162be98e7d75643a",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "FAIL",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "7d54634aa0a751d16fe93af1f47da48bd3fda8665049dad1c5b0a128f4f80e8e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "FAIL",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "7d54634aa0a751d16fe93af1f47da48bd3fda8665049dad1c5b0a128f4f80e8e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "FAIL",
+          "replay_outcome": "FAIL",
+          "report_sha256": "8e99bce3504ce5f4058b51cebc0dc4b16eaa5a30b15cec28162be98e7d75643a",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "FAIL",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "7d54634aa0a751d16fe93af1f47da48bd3fda8665049dad1c5b0a128f4f80e8e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "FAIL",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "7d54634aa0a751d16fe93af1f47da48bd3fda8665049dad1c5b0a128f4f80e8e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "protobuf.js",
+      "version": "8.8.0",
+      "option": "default",
+      "shape": "nested",
+      "trials": 3,
+      "outcome": "FAIL",
+      "stable": true,
+      "results": [
+        {
+          "outcome": "FAIL",
+          "replay_outcome": "FAIL",
+          "report_sha256": "6700446ff4b7993e515625a0e8e0dd211489955506a95b120fa4a5cf69723ccc",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "FAIL",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "FAIL",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "FAIL",
+          "replay_outcome": "FAIL",
+          "report_sha256": "6700446ff4b7993e515625a0e8e0dd211489955506a95b120fa4a5cf69723ccc",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "FAIL",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "FAIL",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "FAIL",
+          "replay_outcome": "FAIL",
+          "report_sha256": "6700446ff4b7993e515625a0e8e0dd211489955506a95b120fa4a5cf69723ccc",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "FAIL",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "FAIL",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "d6797be7ee3dcbb8e42c896d57337d68e3ebb8287f1c3ef38fe6ffaf3c316a7d",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": ""
+                    }
+                  },
+                  "preserved": false
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "protobuf.js",
+      "version": "8.8.0",
+      "option": "preserve",
+      "shape": "simple",
+      "trials": 3,
+      "outcome": "PASS",
+      "stable": true,
+      "results": [
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "ed7aa632f28dc86cc5d51eb7d61d7adbb3d90542f31b8c0f9f165d1112a94b1f",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "ed7aa632f28dc86cc5d51eb7d61d7adbb3d90542f31b8c0f9f165d1112a94b1f",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "ed7aa632f28dc86cc5d51eb7d61d7adbb3d90542f31b8c0f9f165d1112a94b1f",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "protobuf.js",
+      "version": "8.8.0",
+      "option": "preserve",
+      "shape": "nested",
+      "trials": 3,
+      "outcome": "PASS",
+      "stable": true,
+      "results": [
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "2e7f7489547254be73fa7d9cc5f49be10ca6cd7af88cefc1e2b21c63329fb3f8",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "2e7f7489547254be73fa7d9cc5f49be10ca6cd7af88cefc1e2b21c63329fb3f8",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "2e7f7489547254be73fa7d9cc5f49be10ca6cd7af88cefc1e2b21c63329fb3f8",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "google.golang.org/protobuf",
+      "version": "v1.36.12",
+      "option": "preserve",
+      "shape": "simple",
+      "trials": 3,
+      "outcome": "PASS",
+      "stable": true,
+      "results": [
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "1ed110ae5c1e0947e106344a626f229d8a2c82863c37ddf993d27eebc20b717a",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "1ed110ae5c1e0947e106344a626f229d8a2c82863c37ddf993d27eebc20b717a",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "1ed110ae5c1e0947e106344a626f229d8a2c82863c37ddf993d27eebc20b717a",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "output_sha256": "1889d92b361e1c7b1bef26650f8a1a83ecafd77726d4e91f01341bf88c05e62e",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "output_sha256": "17fb8a8b2c2d24011ad4c5f299cc49937532cf447fecb7b7c8c1bee4899e9a1c",
+              "assertions": [
+                {
+                  "path": "future_note",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runtime": "google.golang.org/protobuf",
+      "version": "v1.36.12",
+      "option": "preserve",
+      "shape": "nested",
+      "trials": 3,
+      "outcome": "PASS",
+      "stable": true,
+      "results": [
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "b6dc3c993ca98110371076539f51a7f1531415d7900b5b12c4e900456026ad1f",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "b6dc3c993ca98110371076539f51a7f1531415d7900b5b12c4e900456026ad1f",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "outcome": "PASS",
+          "replay_outcome": "PASS",
+          "report_sha256": "b6dc3c993ca98110371076539f51a7f1531415d7900b5b12c4e900456026ad1f",
+          "cases": [
+            {
+              "id": "s001-baseline",
+              "outcome": "PASS",
+              "input_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "output_sha256": "560638b049c5b4aafe35ffb88b23fb0ce8c8d7c47c3f40891c42b7ca94e2b960",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "future"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            },
+            {
+              "id": "s001-f001-value",
+              "outcome": "PASS",
+              "input_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "output_sha256": "1eecd95eb411b9e34b58bcdab9703db851c6f375dc517fe2a1d142a0ae7a54a4",
+              "assertions": [
+                {
+                  "path": "child.future_note",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "protocarry"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "id",
+                  "expected": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [],
+                    "value": {
+                      "kind": "string",
+                      "value": "A"
+                    }
+                  },
+                  "preserved": true
+                },
+                {
+                  "path": "child.label",
+                  "expected": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "actual": {
+                    "parent_presence": [
+                      true
+                    ],
+                    "value": {
+                      "kind": "string",
+                      "value": "seed"
+                    }
+                  },
+                  "preserved": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

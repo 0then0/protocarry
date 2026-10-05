@@ -31,3 +31,8 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+/bin/
+/evidence/
+/validation/protobufjs/node_modules/
+/validation/protobufjs/runs/

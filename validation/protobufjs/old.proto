@@ -1,0 +1,8 @@
+syntax = "proto3";
+package validation;
+message Envelope { string id = 1; }
+message NestedEnvelope {
+  string id = 1;
+  Child child = 3;
+}
+message Child { string label = 1; }

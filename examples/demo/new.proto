@@ -1,0 +1,16 @@
+syntax = "proto3";
+package demo;
+message Envelope {
+  string id = 1;
+  Child child = 5;
+  int32 score = 7;
+  string routing_hint = 2;
+  bytes token = 3;
+  optional int32 attempts = 4;
+  Future extra = 6;
+}
+message Child {
+  string label = 1;
+  string future_note = 2;
+}
+message Future { string note = 1; }

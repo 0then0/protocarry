@@ -1,0 +1,45 @@
+name: CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-14, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.1'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.21.0'
+          cache: npm
+          cache-dependency-path: validation/protobufjs/package-lock.json
+      - run: make test vet build
+      - run: |
+          make fixtures
+          git diff --exit-code -- examples/demo validation/protobufjs/old.pb validation/protobufjs/new.pb validation/protobufjs/seed.bin validation/protobufjs/nested-seed.bin
+      - run: make demo validation
+      - name: Assert recorded external outcomes still hold
+        run: |
+          node - <<'JS'
+          const fs = require('node:fs');
+          const recorded = JSON.parse(fs.readFileSync('validation/protobufjs/results.json'));
+          const current = JSON.parse(fs.readFileSync('validation/protobufjs/runs/summary.json'));
+          const outcomes = x => x.records.map(r => [r.runtime,r.version,r.option,r.shape,r.outcome]);
+          if (JSON.stringify(outcomes(recorded)) !== JSON.stringify(outcomes(current))) throw new Error('external behavior changed; inspect evidence before updating the baseline');
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidence-${{ matrix.runner }}
+          path: |
+            evidence/
+            validation/protobufjs/runs/
+          if-no-files-found: ignore

@@ -1,0 +1,23 @@
+name: Prepare release binaries
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  prepare:
+    strategy:
+      matrix:
+        runner: [macos-14, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.1'
+      - run: make release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: protocarry-${{ matrix.runner }}
+          path: |
+            bin/protocarry_*.tar.gz
+            bin/protocarry_*.tar.gz.sha256

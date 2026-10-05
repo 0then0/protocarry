@@ -1,0 +1,42 @@
+{
+  "old_descriptor": "old.pb",
+  "new_descriptor": "new.pb",
+  "message": "demo.Envelope",
+  "seeds": [
+    "seed.bin"
+  ],
+  "adapter": [
+    "./bin/demo-adapter",
+    "-schema",
+    "examples/demo/old.pb",
+    "-mode",
+    "json"
+  ],
+  "working_dir": "../..",
+  "fields": [
+    "routing_hint",
+    "token",
+    "attempts",
+    "child.future_note",
+    "extra"
+  ],
+  "controls": [
+    "id",
+    "child.label"
+  ],
+  "allow_create_parents": false,
+  "limits": {
+    "timeout_ms": 2000,
+    "max_cases": 64,
+    "max_depth": 8,
+    "max_message_bytes": 1048576,
+    "max_value_bytes": 64,
+    "max_stdout_bytes": 1048576,
+    "max_stderr_bytes": 65536
+  },
+  "validation_runtime": {
+    "name": "google.golang.org/protobuf",
+    "version": "v1.36.12",
+    "options": "json"
+  }
+}

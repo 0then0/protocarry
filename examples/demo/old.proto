@@ -1,0 +1,8 @@
+syntax = "proto3";
+package demo;
+message Envelope {
+  string id = 1;
+  Child child = 5;
+  int32 score = 7;
+}
+message Child { string label = 1; }
