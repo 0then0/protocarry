@@ -2,8 +2,6 @@
 
 # ProtoCarry
 
-**Verify that an older application preserves newer Protobuf fields through its real read/write path.**
-
 [![CI](https://img.shields.io/github/actions/workflow/status/0then0/protocarry/ci.yml?branch=main&label=CI)](https://github.com/0then0/protocarry/actions/workflows/ci.yml)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Go](https://img.shields.io/badge/Go-1.27-00ADD8.svg)](go.mod)
