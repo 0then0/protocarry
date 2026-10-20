@@ -59,6 +59,12 @@ The [CI workflow](../.github/workflows/ci.yml) runs on macOS and Linux arm64 run
 
 When a runtime outcome changes, inspect its assertions, input/output and recorded dependency versions before updating the baseline. Update a recorded outcome only after identifying and documenting the reason for the change. Keep the legacy replay fixtures unchanged.
 
+## Dependency updates
+
+[Dependabot](../.github/dependabot.yml) checks Go modules and GitHub Actions monthly. Version updates are grouped into at most one open PR per ecosystem, wait at least seven days after publication and exclude major upgrades. Review major upgrades manually. Security updates follow GitHub's separate security-update settings and are not delayed by this schedule or cooldown.
+
+The npm aliases in `validation/protobufjs` are intentionally excluded: they identify specific historical runtime versions used by the compatibility measurements. Change that matrix manually with its validation expectations and measurements.
+
 ## Prepare binary archives
 
 Run on the native target platform:
