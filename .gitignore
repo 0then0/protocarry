@@ -23,3 +23,14 @@ profile.cov
 go.work
 go.work.sum
 .env
+
+# Local secrets, editor state and operating-system files
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

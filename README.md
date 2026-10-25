@@ -13,6 +13,10 @@ ProtoCarry runs your application adapter on valid binary fixtures, decodes its o
 
 Use it for local correctness testing with your own or prepared fixtures. A finding identifies a loss at the application's output boundary; it does not identify the internal step that removed the field.
 
+## Install
+
+Download the archive for your platform from [GitHub Releases](https://github.com/0then0/protocarry/releases/latest), verify its SHA-256 checksum and extract it. Native binaries are available for macOS arm64 and Linux arm64. See the [changelog](CHANGELOG.md) for release changes, or build from source below.
+
 ## Quick start
 
 Build from source with Go 1.27.x and Make. The CLI is a standalone binary; it does not require Node.js or protoc at runtime.
@@ -183,3 +187,7 @@ A [runtime conformance suite](https://github.com/protocolbuffers/protobuf/tree/m
 Tested CLI and release targets are macOS arm64 and Linux arm64. Process groups provide bounded timeout and pipe cleanup; they do not isolate arbitrary processes or descendants that escape the group. Empty stdout is a transport error under the default `empty_output: reject` contract.
 
 For tests, fixture generation, CI and archive preparation, see the [development guide](docs/development.md). Node.js is required only for the external validation tools. ProtoCarry is licensed under [MIT](LICENSE).
+
+## Contributing and support
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for development checks and pull request guidance. Use the [issue templates](https://github.com/0then0/protocarry/issues/new/choose) for reproducible bugs and feature requests. Participation follows the [Code of Conduct](CODE_OF_CONDUCT.md). Report vulnerabilities according to [SECURITY.md](SECURITY.md).

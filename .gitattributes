@@ -1,2 +1,12 @@
+* text=auto eol=lf
+
+# Descriptors and evidence must retain their exact bytes and hashes.
 *.pb binary
 *.bin binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.gz binary
+*.zip binary

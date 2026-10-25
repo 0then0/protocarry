@@ -7,6 +7,7 @@ permissions:
   contents: read
 jobs:
   prepare:
+    timeout-minutes: 20
     strategy:
       matrix:
         runner: [macos-15, ubuntu-24.04-arm]
@@ -37,6 +38,7 @@ jobs:
             bin/protocarry_*.tar.gz.sha256
           if-no-files-found: error
   publish:
+    timeout-minutes: 10
     if: github.event_name == 'push'
     needs: prepare
     runs-on: ubuntu-24.04-arm
