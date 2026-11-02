@@ -4,6 +4,8 @@ This validation suite checks whether published protobuf.js packages preserve fie
 
 The npm lockfile pins unmodified protobuf.js 8.6.1, 8.6.2 and 8.8.0 through package aliases, together with their dependency integrity hashes. Node.js is needed for this suite, not for the ProtoCarry CLI.
 
+These historical versions have known advisories in parsing paths outside this suite's input contract. The relay loads only the checked-in older schema and accepts binary messages; it does not accept external schema text or use the Text Format extension. See the [security assessment](../../SECURITY.md#historical-runtime-validation-dependencies) before reusing or extending this harness.
+
 ## Run the suite
 
 From the repository root, with Go 1.27.x, Node.js 24.x and npm:
