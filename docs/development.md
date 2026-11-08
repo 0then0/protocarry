@@ -84,17 +84,17 @@ Run on the native target platform:
 make release
 ```
 
-The script runs Go tests and vet, builds a standalone binary, requires version 0.1.1, and writes an archive and SHA-256 checksum under `bin/`. Each archive contains `protocarry`, `README.md` and `LICENSE`. The repository contains the linked documentation, examples and validation data.
+The script runs Go tests and vet, builds a standalone binary, requires version 0.1.2, and writes an archive and SHA-256 checksum under `bin/`. Each archive contains `protocarry`, `README.md` and `LICENSE`. The repository contains the linked documentation, examples and validation data.
 
 For example, verify a macOS arm64 archive after copying both files into your download directory:
 
 ```sh
-shasum -a 256 -c protocarry_0.1.1_darwin_arm64.tar.gz.sha256
-tar -xzf protocarry_0.1.1_darwin_arm64.tar.gz
+shasum -a 256 -c protocarry_0.1.2_darwin_arm64.tar.gz.sha256
+tar -xzf protocarry_0.1.2_darwin_arm64.tar.gz
 ./protocarry version
 ```
 
-On Linux, use `sha256sum -c protocarry_0.1.1_linux_arm64.tar.gz.sha256`.
+On Linux, use `sha256sum -c protocarry_0.1.2_linux_arm64.tar.gz.sha256`.
 
 The [release workflow](../.github/workflows/release.yml) prepares artifacts for the same two platforms. A manual run only prepares artifacts. Both native jobs verify the checksum and execute the extracted binary before uploading. Pushing a version tag publishes a GitHub release after both native builds and checksum checks pass. The tag must match the binary version, and release notes must exist at `docs/releases/<tag>.md`. Only the publication job has repository write permission. The local script never publishes a release.
 

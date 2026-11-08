@@ -174,7 +174,7 @@ func TestKotlinSerializationCompatibility(t *testing.T) {
 
 func checkReport(t *testing.T, m mode, rep report) {
 	t.Helper()
-	if rep.Engine.Tool != "0.1.1" || rep.Incomplete || rep.Outcome != m.outcome {
+	if rep.Engine.Tool != "0.1.2" || rep.Incomplete || rep.Outcome != m.outcome {
 		t.Fatalf("%s: tool=%s incomplete=%v outcome=%s", m.name, rep.Engine.Tool, rep.Incomplete, rep.Outcome)
 	}
 	if rep.PlannedCases != 3 || rep.AttemptedCase != 3 || rep.ExecutedCases != 3 {

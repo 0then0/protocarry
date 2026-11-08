@@ -1,7 +1,7 @@
 {
   "format_version": 2,
   "engine": {
-    "tool": "0.1.1",
+    "tool": "0.1.2",
     "go": "go1.27.3",
     "platform": "darwin/arm64",
     "protobuf": "v1.36.12"

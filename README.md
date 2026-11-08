@@ -5,7 +5,7 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/0then0/protocarry/ci.yml?branch=main&label=CI)](https://github.com/0then0/protocarry/actions/workflows/ci.yml)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Go](https://img.shields.io/badge/Go-1.27-00ADD8.svg)](go.mod)
-[![Version](https://img.shields.io/badge/version-0.1.1-0f766e.svg)](docs/contract.md)
+[![Version](https://img.shields.io/badge/version-0.1.2-0f766e.svg)](docs/contract.md)
 
 A producer writes a message with schema v2, an application reads and writes it with schema v1, and a consumer reads it with v2. Every step can succeed while a mapper, a fresh object or a JSON conversion loses fields that v1 does not know.
 
@@ -150,7 +150,7 @@ Replay verifies saved hashes and expectations and sends the exact saved input. T
 
 Require exit `0` from this command in your regression test. The input and contract remain unchanged. Application resources are not archived; the selected executable and its dependencies must be available. See [evidence and replay](docs/contract.md#evidence-and-replay) for details.
 
-Version 0.1.1 reads evidence format `1` produced by `0.1.0` and format `2` produced by `0.1.1`. Legacy evidence always retains `empty_output: reject`; new evidence saves the effective policy. Replay records the source producer separately from the current engine. Other producer/format combinations are rejected before execution. Compatibility preserves the saved contract, not an outcome across changes to the application or environment.
+Version 0.1.2 reads evidence format `1` produced by `0.1.0` and format `2` produced by `0.1.1` or `0.1.2`. Legacy evidence always retains `empty_output: reject`; new evidence saves the effective policy. Replay records the source producer separately from the current engine. Other producer/format combinations are rejected before execution. Compatibility preserves the saved contract, not an outcome across changes to the application or environment.
 
 ## Demo paths
 

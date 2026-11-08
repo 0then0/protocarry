@@ -4,6 +4,8 @@ User-visible changes are recorded here. Published versions also have detailed re
 
 ## Unreleased
 
+## 0.1.2
+
 ### Added
 
 - Contributor, conduct and security policies, issue and pull request templates, and shared editor settings.
@@ -13,6 +15,10 @@ User-visible changes are recorded here. Published versions also have detailed re
 
 - Explicit LF text handling while preserving binary descriptor and evidence bytes.
 - CI cancels superseded runs for the same branch or pull request; CI and release jobs have time limits.
+- Replay accepts format `2` evidence produced by `0.1.1` and `0.1.2`. Evidence format and CLI behavior are otherwise unchanged.
+- Refreshed project icon.
+
+See the [v0.1.2 release notes](docs/releases/v0.1.2.md).
 
 ## 0.1.1
 

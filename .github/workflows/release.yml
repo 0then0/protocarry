@@ -21,11 +21,11 @@ jobs:
       - name: Verify native archive and release version
         run: |
           platform="$(go env GOOS)_$(go env GOARCH)"
-          test "$(bin/release/$platform/protocarry version)" = "ProtoCarry 0.1.1"
-          (cd bin && shasum -a 256 -c "protocarry_0.1.1_${platform}.tar.gz.sha256")
+          test "$(bin/release/$platform/protocarry version)" = "ProtoCarry 0.1.2"
+          (cd bin && shasum -a 256 -c "protocarry_0.1.2_${platform}.tar.gz.sha256")
           mkdir extracted
-          tar -xzf "bin/protocarry_0.1.1_${platform}.tar.gz" -C extracted
-          test "$(extracted/protocarry version)" = "ProtoCarry 0.1.1"
+          tar -xzf "bin/protocarry_0.1.2_${platform}.tar.gz" -C extracted
+          test "$(extracted/protocarry version)" = "ProtoCarry 0.1.2"
       - name: Check tag matches binary version
         if: github.event_name == 'push'
         run: |

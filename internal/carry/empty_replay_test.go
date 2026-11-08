@@ -158,6 +158,18 @@ func TestLegacyEvidenceReplay(t *testing.T) {
 	}
 }
 
+func TestReplayAcceptsPreviousFormat2Producer(t *testing.T) {
+	c := setup(t, "preserve")
+	_, dir := check(t, c)
+	caseDir := filepath.Join(dir, "s001-baseline")
+	m := readManifest(t, caseDir)
+	m.Engine.Tool = "0.1.1"
+	must(t, writeJSON(filepath.Join(caseDir, "case.json"), m))
+	r, err := Replay(caseDir, filepath.Join(t.TempDir(), "replay"))
+	must(t, err)
+	outcome(t, r, Pass)
+}
+
 func TestReplayRejectsBeforeAdapter(t *testing.T) {
 	for _, change := range []string{"format", "future-producer", "format1-current", "format2-legacy", "missing-policy", "unknown-policy", "legacy-new-policy", "hash", "expectation", "assertions", "missing-descriptor"} {
 		t.Run(change, func(t *testing.T) {
@@ -169,7 +181,7 @@ func TestReplayRejectsBeforeAdapter(t *testing.T) {
 			case "format":
 				m.Format = 99
 			case "future-producer":
-				m.Engine.Tool = "0.1.2"
+				m.Engine.Tool = "0.1.3"
 			case "format1-current":
 				m.Format = 1
 			case "format2-legacy":

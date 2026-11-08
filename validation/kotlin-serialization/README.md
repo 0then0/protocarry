@@ -123,7 +123,7 @@ Known properties are carried over. Both holders fall back to `Empty`, because no
 
 ## Results
 
-Recorded in [results.json](results.json) from a run on macOS arm64, with representative bundles in [evidence/](evidence/). Each mode ran three cases through ProtoCarry 0.1.1 with no skipped cases and no infrastructure errors.
+Recorded in [results.json](results.json) from a run on macOS arm64, with representative bundles in [evidence/](evidence/). Each mode ran three cases through ProtoCarry 0.1.2 with no skipped cases and no infrastructure errors.
 
 - **No holder** (`no-holder.json`): FAIL, exit `1`, all three cases. `future_note` (#3) expected `"future-root"`, actual `""`. `child.future_note` (#4/#2) expected `"future-child"`, actual `""`, with the parent present. Controls `id`, `revision` and `child.label` preserved.
 - **Holder carried** (`preserve-holder.json`): PASS, exit `0`, all three cases. Both added fields and all three controls preserved. The adapter output is 40 bytes.
@@ -138,7 +138,7 @@ Checks beyond the three modes:
 
 ## Versions and references
 
-- kotlinx.serialization 1.12.0 (`kotlinx-serialization-protobuf`), Kotlin 2.4.10 with its serialization compiler plugin, Gradle 9.2.0, JDK 17, ProtoCarry 0.1.1.
+- kotlinx.serialization 1.12.0 (`kotlinx-serialization-protobuf`), Kotlin 2.4.10 with its serialization compiler plugin, Gradle 9.2.0, JDK 17, ProtoCarry 0.1.2.
 - [v1.12.0 release](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.12.0), the [documentation for preserving unknown fields](https://github.com/Kotlin/kotlinx.serialization/blob/v1.12.0/docs/formats.md#preserving-unknown-fields-experimental) and [pull request 2860](https://github.com/Kotlin/kotlinx.serialization/pull/2860), which introduced the feature.
 - The holder behavior described here was also checked in the 1.12.0 sources jar: the holder is selected by its type, and the API is experimental and requires `@OptIn(ExperimentalSerializationApi::class)`.
 

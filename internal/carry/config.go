@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-const Version = "0.1.1"
+const Version = "0.1.2"
 const descriptorLimit = 8 << 20
 
 const (
