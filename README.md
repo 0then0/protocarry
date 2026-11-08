@@ -176,6 +176,8 @@ The [validation guide](validation/protobufjs/README.md) explains the fixtures, a
 
 Default discard is documented protobuf.js behavior. It produces a ProtoCarry FAIL when the application contract requires the discarded fields to survive. These measurements apply to the tested runtime versions, options and fixtures.
 
+A second, independent [Kotlin/JVM case](validation/kotlin-serialization/README.md) runs a kotlinx.serialization 1.12.0 adapter in three modes: no holder (FAIL), a `ProtoUnknownFieldHolder` carried through the read/write path (PASS) and a mapper that rebuilds the object from known properties (FAIL). It needs a JDK only for that directory and is an external library compatibility case, not a recommendation or an adoption report.
+
 ## How it fits
 
 [Buf breaking](https://buf.build/docs/breaking/) checks schemas against compatibility rules. Compatible additions do not tell you whether an application's mapper or load/save workflow retains them. ProtoCarry tests that path.

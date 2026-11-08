@@ -43,6 +43,19 @@ func External(new bool) *descriptorpb.FileDescriptorSet {
 	}
 	return &descriptorpb.FileDescriptorSet{File: []*descriptorpb.FileDescriptorProto{{Name: proto.String("validation.proto"), Package: proto.String("validation"), Syntax: proto.String("proto3"), MessageType: []*descriptorpb.DescriptorProto{root, nested, child}}}}
 }
+
+// Kotlin describes the schemas of the kotlinx.serialization compatibility case:
+// the newer schema adds a root scalar and a scalar inside the known child message.
+func Kotlin(new bool) *descriptorpb.FileDescriptorSet {
+	str := descriptorpb.FieldDescriptorProto_TYPE_STRING
+	child := &descriptorpb.DescriptorProto{Name: proto.String("Child"), Field: []*descriptorpb.FieldDescriptorProto{Field("label", 1, str)}}
+	root := &descriptorpb.DescriptorProto{Name: proto.String("Envelope"), Field: []*descriptorpb.FieldDescriptorProto{Field("id", 1, str), Field("revision", 2, descriptorpb.FieldDescriptorProto_TYPE_INT32), MsgField("child", 4, ".kotlincase.Child")}}
+	if new {
+		root.Field = append(root.Field, Field("future_note", 3, str))
+		child.Field = append(child.Field, Field("future_note", 2, str))
+	}
+	return &descriptorpb.FileDescriptorSet{File: []*descriptorpb.FileDescriptorProto{{Name: proto.String("kotlincase.proto"), Package: proto.String("kotlincase"), Syntax: proto.String("proto3"), MessageType: []*descriptorpb.DescriptorProto{root, child}}}}
+}
 func Descriptor(set *descriptorpb.FileDescriptorSet, name string) protoreflect.MessageDescriptor {
 	files, err := protodesc.NewFiles(set)
 	if err != nil {
@@ -79,6 +92,17 @@ func ExternalSeed(nested bool) []byte {
 	} else {
 		m.Set(m.Descriptor().Fields().ByName("future_note"), protoreflect.ValueOfString("future"))
 	}
+	return MustMarshal(m)
+}
+func KotlinSeed() []byte {
+	m := dynamicpb.NewMessage(Descriptor(Kotlin(true), "kotlincase.Envelope"))
+	fields := m.Descriptor().Fields()
+	m.Set(fields.ByName("id"), protoreflect.ValueOfString("A"))
+	m.Set(fields.ByName("revision"), protoreflect.ValueOfInt32(7))
+	m.Set(fields.ByName("future_note"), protoreflect.ValueOfString("future-root"))
+	child := m.Mutable(fields.ByName("child")).Message()
+	child.Set(child.Descriptor().Fields().ByName("label"), protoreflect.ValueOfString("seed"))
+	child.Set(child.Descriptor().Fields().ByName("future_note"), protoreflect.ValueOfString("future-child"))
 	return MustMarshal(m)
 }
 func MustMarshal(m proto.Message) []byte {

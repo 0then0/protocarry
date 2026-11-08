@@ -1,0 +1,3 @@
+{"mode":"rebuild","input_bytes":39,"runtime":{"jdk":"17.0.21+9","jvm_vendor":"Eclipse Adoptium","kotlin_runtime":"2.4.10","kotlin_compiler":"2.4.10","kotlinx_serialization_protobuf":"1.12.0"}}
+{"unknown_bytes_decoded":{"root":12,"child":14},"unknown_bytes_rebuilt":{"root":0,"child":0}}
+{"output_bytes":13}

@@ -7,6 +7,7 @@ This guide covers building ProtoCarry, running its checks and preparing binary a
 - Go 1.27.x and Make.
 - macOS or Linux for adapter subprocess tests.
 - Node.js 24.x and npm for the external protobuf.js validation.
+- JDK 17 only for the optional Kotlin/JVM library case. Gradle is fetched by its checked-in wrapper.
 - `tar` and either `sha256sum` or `shasum` for release packaging.
 
 The tested release targets are macOS arm64 and Linux arm64. Windows and Intel release artifacts are not provided. The CLI has no dependency on Node.js, protoc or Buf at runtime.
@@ -53,15 +54,25 @@ This builds the binaries, installs the locked npm dependencies with `npm ci`, ru
 
 The runner writes `validation/protobufjs/runs/` and refuses to reuse it. Move prior measurements aside before running again. Normal validation does not change the committed results or representative evidence. See the [validation guide](../validation/protobufjs/README.md) for measurement interpretation, replay and baseline updates.
 
+## Kotlin/JVM library case
+
+```sh
+make kotlin-validation
+```
+
+This builds the CLI, runs the Gradle wrapper (`test` and `jar`, which download the declared dependencies once, checked against `gradle/verification-metadata.xml`), then measures the kotlinx.serialization adapter through ProtoCarry. Gradle and the JDK are used only in `validation/kotlin-serialization`; the Go CLI does not depend on them. The runner writes `validation/kotlin-serialization/runs/` and refuses to reuse it. See the [Kotlin guide](../validation/kotlin-serialization/README.md) for the three application paths, results and replay commands.
+
 ## CI
 
-The [CI workflow](../.github/workflows/ci.yml) runs on macOS and Linux arm64 runners. It checks Go tests and vet, reproducible fixture generation, demos and external validation. Separate assertions compare measured runtime outcomes with the v0.1.0 baseline and v0.1.1 empty-message measurements. Both native runners also exercise authentic legacy replay fixtures. Evidence is uploaded as a workflow artifact, including when a check fails.
+The [CI workflow](../.github/workflows/ci.yml) runs on macOS and Linux arm64 runners. It checks Go tests and vet, reproducible fixture generation, demos and external validation. Separate assertions compare measured runtime outcomes with the v0.1.0 baseline and v0.1.1 empty-message measurements. Both native runners also exercise authentic legacy replay fixtures. A separate Linux arm64 job runs the Kotlin/JVM library case once with Temurin 17. Evidence is uploaded as a workflow artifact, including when a check fails.
 
 When a runtime outcome changes, inspect its assertions, input/output and recorded dependency versions before updating the baseline. Update a recorded outcome only after identifying and documenting the reason for the change. Keep the legacy replay fixtures unchanged.
 
 ## Dependency updates
 
 [Dependabot](../.github/dependabot.yml) checks Go modules and GitHub Actions monthly. Version updates are grouped into at most one open PR per ecosystem, wait at least seven days after publication and exclude major upgrades. Review major upgrades manually. Security updates follow GitHub's separate security-update settings and are not delayed by this schedule or cooldown.
+
+Gradle dependencies in `validation/kotlin-serialization` are not covered by Dependabot. The Kotlin compiler plugin and kotlinx.serialization versions identify the tested library release, so update them manually together with the guide, `verification-metadata.xml` and the recorded evidence.
 
 The npm aliases in `validation/protobufjs` are intentionally excluded: they identify specific historical runtime versions used by the compatibility measurements. Change that matrix manually with its validation expectations and measurements.
 

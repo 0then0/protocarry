@@ -34,3 +34,9 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Kotlin compatibility case: Gradle, compiler caches, adapter jar and runs
+/validation/kotlin-serialization/.gradle/
+/validation/kotlin-serialization/.kotlin/
+/validation/kotlin-serialization/build/
+/validation/kotlin-serialization/runs/

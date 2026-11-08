@@ -1,4 +1,4 @@
-.PHONY: build test vet fixtures demo validation release
+.PHONY: build test vet fixtures demo validation kotlin-validation release
 
 build:
 	mkdir -p bin
@@ -25,6 +25,10 @@ validation: build
 	cd validation/protobufjs && npm ci --ignore-scripts --no-audit --no-fund
 	cd validation/protobufjs && npm test
 	cd validation/protobufjs && npm run validate
+
+kotlin-validation: build
+	cd validation/kotlin-serialization && ./gradlew --no-daemon test jar
+	PROTOCARRY_KOTLIN_VALIDATION=1 go test ./validation/kotlin-serialization -count=1 -v
 
 release:
 	sh scripts/release.sh

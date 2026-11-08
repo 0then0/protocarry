@@ -1,0 +1,23 @@
+{
+  "old_descriptor": "old.pb",
+  "new_descriptor": "new.pb",
+  "message": "kotlincase.Envelope",
+  "seeds": ["seed.bin"],
+  "adapter": ["java", "-jar", "build/libs/adapter.jar", "no-holder"],
+  "fields": ["future_note", "child.future_note"],
+  "controls": ["id", "revision", "child.label"],
+  "limits": {
+    "timeout_ms": 10000,
+    "max_cases": 64,
+    "max_depth": 8,
+    "max_message_bytes": 1048576,
+    "max_value_bytes": 64,
+    "max_stdout_bytes": 1048576,
+    "max_stderr_bytes": 65536
+  },
+  "validation_runtime": {
+    "name": "kotlinx-serialization-protobuf",
+    "version": "1.12.0",
+    "options": "no-holder"
+  }
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+package kotlincase;
+message Envelope {
+  string id = 1;
+  int32 revision = 2;
+  string future_note = 3;
+  Child child = 4;
+}
+message Child {
+  string label = 1;
+  string future_note = 2;
+}

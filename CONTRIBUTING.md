@@ -10,7 +10,7 @@ For a bug, include the CLI version, operating system and architecture, adapter/r
 
 ## Development
 
-Use Go 1.27.x, Make and macOS or Linux. Node.js 24.x and npm are needed only for external runtime validation. See the [development guide](docs/development.md) for complete commands and platform scope.
+Use Go 1.27.x, Make and macOS or Linux. Node.js 24.x and npm are needed only for the protobuf.js validation, and JDK 17 only for the Kotlin library case (`make kotlin-validation`). See the [development guide](docs/development.md) for complete commands and platform scope.
 
 ```sh
 go mod download

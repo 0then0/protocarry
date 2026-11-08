@@ -29,7 +29,7 @@ jobs:
       - run: test "$(bin/protocarry version)" = "ProtoCarry 0.1.1"
       - run: |
           make fixtures
-          git diff --exit-code -- examples/demo validation/protobufjs/old.pb validation/protobufjs/new.pb validation/protobufjs/seed.bin validation/protobufjs/nested-seed.bin
+          git diff --exit-code -- examples/demo validation/protobufjs/old.pb validation/protobufjs/new.pb validation/protobufjs/seed.bin validation/protobufjs/nested-seed.bin validation/kotlin-serialization/old.pb validation/kotlin-serialization/new.pb validation/kotlin-serialization/seed.bin
       - run: make demo validation
       - name: Assert recorded external outcomes still hold
         run: |
@@ -51,4 +51,31 @@ jobs:
           path: |
             evidence/
             validation/protobufjs/runs/
+          if-no-files-found: ignore
+  kotlin:
+    # One native runner is enough for this external library case; the Go and protobuf.js checks above cover both platforms.
+    timeout-minutes: 20
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.27.1'
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17.0.21'
+          cache: gradle
+          cache-dependency-path: |
+            validation/kotlin-serialization/gradle/wrapper/gradle-wrapper.properties
+            validation/kotlin-serialization/gradle/verification-metadata.xml
+            validation/kotlin-serialization/*.gradle.kts
+      - run: make kotlin-validation
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: evidence-kotlin-serialization
+          path: |
+            validation/kotlin-serialization/runs/
+            validation/kotlin-serialization/build/test-results/
           if-no-files-found: ignore
