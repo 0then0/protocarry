@@ -1,0 +1,104 @@
+{
+  "infrastructure_controls": {
+    "missing-jar": {
+      "counts": {
+        "FAIL": 0,
+        "INFRASTRUCTURE_ERROR": 3,
+        "PASS": 0,
+        "UNRESOLVED": 0
+      },
+      "exit_code": 4,
+      "outcome": "INFRASTRUCTURE_ERROR"
+    },
+    "unknown-mode": {
+      "counts": {
+        "FAIL": 0,
+        "INFRASTRUCTURE_ERROR": 3,
+        "PASS": 0,
+        "UNRESOLVED": 0
+      },
+      "exit_code": 4,
+      "outcome": "INFRASTRUCTURE_ERROR"
+    }
+  },
+  "kotlin_redecode_check": "./gradlew test (AdapterTest)",
+  "modes": {
+    "no-holder": {
+      "counts": {
+        "FAIL": 3,
+        "INFRASTRUCTURE_ERROR": 0,
+        "PASS": 0,
+        "UNRESOLVED": 0
+      },
+      "exit_code": 1,
+      "failed_paths": {
+        "s001-baseline": [
+          "child.future_note expected \"future-child\" actual \"\"",
+          "future_note expected \"future-root\" actual \"\""
+        ],
+        "s001-f001-value": [
+          "child.future_note expected \"future-child\" actual \"\"",
+          "future_note expected \"protocarry\" actual \"\""
+        ],
+        "s001-f002-value": [
+          "child.future_note expected \"protocarry\" actual \"\"",
+          "future_note expected \"future-root\" actual \"\""
+        ]
+      },
+      "outcome": "FAIL"
+    },
+    "preserve-holder": {
+      "counts": {
+        "FAIL": 0,
+        "INFRASTRUCTURE_ERROR": 0,
+        "PASS": 3,
+        "UNRESOLVED": 0
+      },
+      "exit_code": 0,
+      "failed_paths": {},
+      "outcome": "PASS"
+    },
+    "rebuild": {
+      "counts": {
+        "FAIL": 3,
+        "INFRASTRUCTURE_ERROR": 0,
+        "PASS": 0,
+        "UNRESOLVED": 0
+      },
+      "exit_code": 1,
+      "failed_paths": {
+        "s001-baseline": [
+          "child.future_note expected \"future-child\" actual \"\"",
+          "future_note expected \"future-root\" actual \"\""
+        ],
+        "s001-f001-value": [
+          "child.future_note expected \"future-child\" actual \"\"",
+          "future_note expected \"protocarry\" actual \"\""
+        ],
+        "s001-f002-value": [
+          "child.future_note expected \"protocarry\" actual \"\"",
+          "future_note expected \"future-root\" actual \"\""
+        ]
+      },
+      "outcome": "FAIL"
+    }
+  },
+  "replayed_cases": [
+    "no-holder/s001-baseline",
+    "no-holder/s001-f001-value",
+    "no-holder/s001-f002-value",
+    "preserve-holder/s001-baseline",
+    "preserve-holder/s001-f001-value",
+    "preserve-holder/s001-f002-value",
+    "rebuild/s001-baseline",
+    "rebuild/s001-f001-value",
+    "rebuild/s001-f002-value"
+  ],
+  "runtime": {
+    "jdk": "17.0.21+9",
+    "jvm_vendor": "Eclipse Adoptium",
+    "kotlin_runtime": "2.4.10",
+    "kotlin_compiler": "2.4.10",
+    "kotlinx_serialization_protobuf": "1.12.0"
+  }
+}

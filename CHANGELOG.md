@@ -7,6 +7,7 @@ User-visible changes are recorded here. Published versions also have detailed re
 ### Added
 
 - Contributor, conduct and security policies, issue and pull request templates, and shared editor settings.
+- A Kotlin/JVM external library compatibility case for kotlinx.serialization 1.12.0 unknown-field preservation, with a separate CI job. It needs a JDK only under `validation/kotlin-serialization`; the CLI is unchanged.
 
 ### Changed
 

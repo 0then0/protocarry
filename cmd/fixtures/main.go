@@ -18,6 +18,9 @@ func main() {
 	save("validation/protobufjs/new.pb", fixture.MustMarshal(fixture.External(true)))
 	save("validation/protobufjs/seed.bin", fixture.ExternalSeed(false))
 	save("validation/protobufjs/nested-seed.bin", fixture.ExternalSeed(true))
+	save("validation/kotlin-serialization/old.pb", fixture.MustMarshal(fixture.Kotlin(false)))
+	save("validation/kotlin-serialization/new.pb", fixture.MustMarshal(fixture.Kotlin(true)))
+	save("validation/kotlin-serialization/seed.bin", fixture.KotlinSeed())
 	for _, mode := range []string{"preserve", "copy", "json", "mutate"} {
 		c := carry.Config{OldDescriptor: "old.pb", NewDescriptor: "new.pb", Message: "demo.Envelope", Seeds: []string{"seed.bin"}, Adapter: []string{"./bin/demo-adapter", "-schema", "examples/demo/old.pb", "-mode", mode}, WorkingDir: "../..", Fields: []string{"routing_hint", "token", "attempts", "child.future_note", "extra"}, Controls: []string{"id", "child.label"}, Limits: carry.DefaultLimits(), Runtime: carry.Runtime{Name: "google.golang.org/protobuf", Version: "v1.36.12", Options: mode}}
 		b, err := json.MarshalIndent(c, "", "  ")

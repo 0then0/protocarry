@@ -1,0 +1,236 @@
+{
+  "format_version": 2,
+  "engine": {
+    "tool": "0.1.1",
+    "go": "go1.27.3",
+    "platform": "darwin/arm64",
+    "protobuf": "v1.36.12"
+  },
+  "config": {
+    "old_descriptor": "old.pb",
+    "new_descriptor": "new.pb",
+    "message": "kotlincase.Envelope",
+    "seeds": [
+      "input.bin"
+    ],
+    "adapter": [
+      "java",
+      "-jar",
+      "build/libs/adapter.jar",
+      "rebuild"
+    ],
+    "working_dir": "/Users/user/Dev/protocarry/validation/kotlin-serialization",
+    "fields": [
+      "future_note",
+      "child.future_note"
+    ],
+    "controls": [
+      "id",
+      "revision",
+      "child.label"
+    ],
+    "allow_create_parents": false,
+    "empty_output": "reject",
+    "limits": {
+      "timeout_ms": 10000,
+      "max_cases": 64,
+      "max_depth": 8,
+      "max_message_bytes": 1048576,
+      "max_value_bytes": 64,
+      "max_stdout_bytes": 1048576,
+      "max_stderr_bytes": 65536
+    },
+    "validation_runtime": {
+      "name": "kotlinx-serialization-protobuf",
+      "version": "1.12.0",
+      "options": "rebuild"
+    }
+  },
+  "contract": [
+    {
+      "path": "future_note",
+      "field_numbers": [
+        3
+      ],
+      "absent_in_old_schema": true
+    },
+    {
+      "path": "child.future_note",
+      "field_numbers": [
+        4,
+        2
+      ],
+      "absent_in_old_schema": true
+    },
+    {
+      "path": "id",
+      "field_numbers": [
+        1
+      ],
+      "absent_in_old_schema": false
+    },
+    {
+      "path": "revision",
+      "field_numbers": [
+        2
+      ],
+      "absent_in_old_schema": false
+    },
+    {
+      "path": "child.label",
+      "field_numbers": [
+        4,
+        1
+      ],
+      "absent_in_old_schema": false
+    }
+  ],
+  "case": {
+    "id": "s001-f002-value",
+    "seed": "/Users/user/Dev/protocarry/validation/kotlin-serialization/seed.bin",
+    "kind": "value",
+    "field": "child.future_note",
+    "attempted": true,
+    "executed": true,
+    "outcome": "FAIL",
+    "reason": "preservation contract violated",
+    "evidence": "s001-f002-value",
+    "assertions": [
+      {
+        "path": "future_note",
+        "field_numbers": [
+          3
+        ],
+        "absent_in_old_schema": true,
+        "expected": {
+          "parent_presence": [],
+          "value": {
+            "kind": "string",
+            "value": "future-root"
+          }
+        },
+        "actual": {
+          "parent_presence": [],
+          "value": {
+            "kind": "string",
+            "value": ""
+          }
+        },
+        "preserved": false
+      },
+      {
+        "path": "child.future_note",
+        "field_numbers": [
+          4,
+          2
+        ],
+        "absent_in_old_schema": true,
+        "expected": {
+          "parent_presence": [
+            true
+          ],
+          "value": {
+            "kind": "string",
+            "value": "protocarry"
+          }
+        },
+        "actual": {
+          "parent_presence": [
+            true
+          ],
+          "value": {
+            "kind": "string",
+            "value": ""
+          }
+        },
+        "preserved": false
+      },
+      {
+        "path": "id",
+        "field_numbers": [
+          1
+        ],
+        "absent_in_old_schema": false,
+        "expected": {
+          "parent_presence": [],
+          "value": {
+            "kind": "string",
+            "value": "A"
+          }
+        },
+        "actual": {
+          "parent_presence": [],
+          "value": {
+            "kind": "string",
+            "value": "A"
+          }
+        },
+        "preserved": true
+      },
+      {
+        "path": "revision",
+        "field_numbers": [
+          2
+        ],
+        "absent_in_old_schema": false,
+        "expected": {
+          "parent_presence": [],
+          "value": {
+            "kind": "int32",
+            "value": "7"
+          }
+        },
+        "actual": {
+          "parent_presence": [],
+          "value": {
+            "kind": "int32",
+            "value": "7"
+          }
+        },
+        "preserved": true
+      },
+      {
+        "path": "child.label",
+        "field_numbers": [
+          4,
+          1
+        ],
+        "absent_in_old_schema": false,
+        "expected": {
+          "parent_presence": [
+            true
+          ],
+          "value": {
+            "kind": "string",
+            "value": "seed"
+          }
+        },
+        "actual": {
+          "parent_presence": [
+            true
+          ],
+          "value": {
+            "kind": "string",
+            "value": "seed"
+          }
+        },
+        "preserved": true
+      }
+    ],
+    "process": {
+      "exit_code": 0,
+      "started": true,
+      "timeout": false,
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "input_bytes_written": 38
+    },
+    "sha256": {
+      "input.bin": "5dc768073e46caf8a0a7346b5fd3de6b782516c4cd1dd7419e979c572d37c58f",
+      "new.pb": "9e83b92f69fa91fbaa9ec83d694d8f5d99e1e19860e9eb48366476bc18ee8eac",
+      "old.pb": "0ce42bdb2a0f425ddd564e6ec4f89a46022505b718d325efdad81e0ea1407e7d",
+      "output.bin": "d9b208d1513675ce33e5b58ecce7c754bf26c2707b49e9a330f71a6b32267667",
+      "stderr.log": "96e2553ebae7bd0f7cfe4e00f15d647c8ed84874ef5c2f0f84b9882c657ab55c"
+    }
+  }
+}

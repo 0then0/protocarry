@@ -1,0 +1,2 @@
+{"mode":"no-holder","input_bytes":40,"runtime":{"jdk":"17.0.21+9","jvm_vendor":"Eclipse Adoptium","kotlin_runtime":"2.4.10","kotlin_compiler":"2.4.10","kotlinx_serialization_protobuf":"1.12.0"}}
+{"output_bytes":13}
