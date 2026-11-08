@@ -4,6 +4,12 @@ User-visible changes are recorded here. Published versions also have detailed re
 
 ## Unreleased
 
+## 0.1.3
+
+- Native macOS x64 (Intel) and Linux x64 binary archives, built and tested on native runners alongside the existing arm64 archives. Windows remains unsupported. The CLI, evidence format and schema scope are unchanged; replay also accepts format `2` evidence produced by `0.1.3`.
+
+See the [v0.1.3 release notes](docs/releases/v0.1.3.md).
+
 ## 0.1.2
 
 ### Added

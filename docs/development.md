@@ -10,7 +10,7 @@ This guide covers building ProtoCarry, running its checks and preparing binary a
 - JDK 17 only for the optional Kotlin/JVM library case. Gradle is fetched by its checked-in wrapper.
 - `tar` and either `sha256sum` or `shasum` for release packaging.
 
-The tested release targets are macOS arm64 and Linux arm64. Windows and Intel release artifacts are not provided. The CLI has no dependency on Node.js, protoc or Buf at runtime.
+The tested release targets are macOS arm64 and x64 (Intel), and Linux arm64 and x64. Windows is not supported: adapter process cleanup relies on POSIX process groups. The CLI has no dependency on Node.js, protoc or Buf at runtime.
 
 ## Build and test
 
@@ -64,7 +64,7 @@ This builds the CLI, runs the Gradle wrapper (`test` and `jar`, which download t
 
 ## CI
 
-The [CI workflow](../.github/workflows/ci.yml) runs on macOS and Linux arm64 runners. It checks Go tests and vet, reproducible fixture generation, demos and external validation. Separate assertions compare measured runtime outcomes with the v0.1.0 baseline and v0.1.1 empty-message measurements. Both native runners also exercise authentic legacy replay fixtures. A separate Linux arm64 job runs the Kotlin/JVM library case once with Temurin 17. Evidence is uploaded as a workflow artifact, including when a check fails.
+The [CI workflow](../.github/workflows/ci.yml) runs on native macOS (arm64, Intel) and Linux (arm64, x64) runners. It checks Go tests and vet, reproducible fixture generation, demos and external validation. Separate assertions compare measured runtime outcomes with the v0.1.0 baseline and v0.1.1 empty-message measurements. Both native runners also exercise authentic legacy replay fixtures. A separate Linux arm64 job runs the Kotlin/JVM library case once with Temurin 17. Evidence is uploaded as a workflow artifact, including when a check fails.
 
 When a runtime outcome changes, inspect its assertions, input/output and recorded dependency versions before updating the baseline. Update a recorded outcome only after identifying and documenting the reason for the change. Keep the legacy replay fixtures unchanged.
 
@@ -84,19 +84,19 @@ Run on the native target platform:
 make release
 ```
 
-The script runs Go tests and vet, builds a standalone binary, requires version 0.1.2, and writes an archive and SHA-256 checksum under `bin/`. Each archive contains `protocarry`, `README.md` and `LICENSE`. The repository contains the linked documentation, examples and validation data.
+The script runs Go tests and vet, builds a standalone binary, requires version 0.1.3, and writes an archive and SHA-256 checksum under `bin/`. Each archive contains `protocarry`, `README.md` and `LICENSE`. The repository contains the linked documentation, examples and validation data.
 
 For example, verify a macOS arm64 archive after copying both files into your download directory:
 
 ```sh
-shasum -a 256 -c protocarry_0.1.2_darwin_arm64.tar.gz.sha256
-tar -xzf protocarry_0.1.2_darwin_arm64.tar.gz
+shasum -a 256 -c protocarry_0.1.3_darwin_arm64.tar.gz.sha256
+tar -xzf protocarry_0.1.3_darwin_arm64.tar.gz
 ./protocarry version
 ```
 
-On Linux, use `sha256sum -c protocarry_0.1.2_linux_arm64.tar.gz.sha256`.
+On Linux, use `sha256sum -c protocarry_0.1.3_linux_arm64.tar.gz.sha256`. Intel macOS and x64 Linux archives use `darwin_amd64` and `linux_amd64` in their names.
 
-The [release workflow](../.github/workflows/release.yml) prepares artifacts for the same two platforms. A manual run only prepares artifacts. Both native jobs verify the checksum and execute the extracted binary before uploading. Pushing a version tag publishes a GitHub release after both native builds and checksum checks pass. The tag must match the binary version, and release notes must exist at `docs/releases/<tag>.md`. Only the publication job has repository write permission. The local script never publishes a release.
+The [release workflow](../.github/workflows/release.yml) prepares artifacts for the four tested platforms. A manual run only prepares artifacts. All four native jobs verify the checksum and execute the extracted binary before uploading. Pushing a version tag publishes a GitHub release after all four native builds and checksum checks pass. The tag must match the binary version, and release notes must exist at `docs/releases/<tag>.md`. Only the publication job has repository write permission. The local script never publishes a release.
 
 ## Interpreting verification
 

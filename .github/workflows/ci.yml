@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: [macos-15, ubuntu-24.04-arm]
+        runner: [macos-15, macos-15-intel, ubuntu-24.04-arm, ubuntu-24.04]
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v7
@@ -26,7 +26,7 @@ jobs:
           cache: npm
           cache-dependency-path: validation/protobufjs/package-lock.json
       - run: make test vet build
-      - run: test "$(bin/protocarry version)" = "ProtoCarry 0.1.2"
+      - run: test "$(bin/protocarry version)" = "ProtoCarry 0.1.3"
       - run: |
           make fixtures
           git diff --exit-code -- examples/demo validation/protobufjs/old.pb validation/protobufjs/new.pb validation/protobufjs/seed.bin validation/protobufjs/nested-seed.bin validation/kotlin-serialization/old.pb validation/kotlin-serialization/new.pb validation/kotlin-serialization/seed.bin
@@ -42,7 +42,7 @@ jobs:
           if (JSON.stringify(outcomes(recorded)) !== JSON.stringify(outcomes(current))) throw new Error('external behavior changed; inspect evidence before updating the baseline');
           const empty = x => x.empty_records.map(r => [r.runtime,r.version,r.option,r.shape,r.empty_output,r.outcome]);
           if (JSON.stringify(empty(v011)) !== JSON.stringify(empty(current))) throw new Error('empty-message behavior changed');
-          if (current.tool.tool !== '0.1.2' || current.legacy_replays.length !== 8) throw new Error('producer/legacy validation incomplete');
+          if (current.tool.tool !== '0.1.3' || current.legacy_replays.length !== 8) throw new Error('producer/legacy validation incomplete');
           JS
       - uses: actions/upload-artifact@v7
         if: always()

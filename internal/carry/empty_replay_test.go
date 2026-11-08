@@ -158,16 +158,20 @@ func TestLegacyEvidenceReplay(t *testing.T) {
 	}
 }
 
-func TestReplayAcceptsPreviousFormat2Producer(t *testing.T) {
-	c := setup(t, "preserve")
-	_, dir := check(t, c)
-	caseDir := filepath.Join(dir, "s001-baseline")
-	m := readManifest(t, caseDir)
-	m.Engine.Tool = "0.1.1"
-	must(t, writeJSON(filepath.Join(caseDir, "case.json"), m))
-	r, err := Replay(caseDir, filepath.Join(t.TempDir(), "replay"))
-	must(t, err)
-	outcome(t, r, Pass)
+func TestReplayAcceptsPreviousFormat2Producers(t *testing.T) {
+	for _, tool := range []string{"0.1.1", "0.1.2"} {
+		t.Run(tool, func(t *testing.T) {
+			c := setup(t, "preserve")
+			_, dir := check(t, c)
+			caseDir := filepath.Join(dir, "s001-baseline")
+			m := readManifest(t, caseDir)
+			m.Engine.Tool = tool
+			must(t, writeJSON(filepath.Join(caseDir, "case.json"), m))
+			r, err := Replay(caseDir, filepath.Join(t.TempDir(), "replay"))
+			must(t, err)
+			outcome(t, r, Pass)
+		})
+	}
 }
 
 func TestReplayRejectsBeforeAdapter(t *testing.T) {
@@ -181,7 +185,7 @@ func TestReplayRejectsBeforeAdapter(t *testing.T) {
 			case "format":
 				m.Format = 99
 			case "future-producer":
-				m.Engine.Tool = "0.1.3"
+				m.Engine.Tool = "0.1.4"
 			case "format1-current":
 				m.Format = 1
 			case "format2-legacy":

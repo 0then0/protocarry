@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-Security fixes target the latest published release, currently v0.1.2. Older releases are not maintained separately. Upgrade before checking whether a problem persists.
+Security fixes target the latest published release, currently v0.1.3. Older releases are not maintained separately. Upgrade before checking whether a problem persists.
 
 ## Reporting a vulnerability
 

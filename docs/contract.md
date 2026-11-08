@@ -1,6 +1,6 @@
 # Preservation contract reference
 
-This reference describes ProtoCarry v0.1.2 configuration, comparison rules, limits and evidence. For a runnable introduction, see the [README](../README.md).
+This reference describes ProtoCarry v0.1.3 configuration, comparison rules, limits and evidence. For a runnable introduction, see the [README](../README.md).
 
 ## Configuration
 
@@ -135,10 +135,10 @@ protocarry replay -case CASE_DIR -out NEW_DIR
 
 Replay checks artifact hashes and mandatory input/descriptors, recomputes saved expectations from the input and descriptors, verifies assertion paths, field numbers, addition status and expected values/presence, and executes only the exact saved input. It does not generate cases.
 
-v0.1.2 explicitly accepts only these evidence contracts:
+v0.1.3 explicitly accepts only these evidence contracts:
 
 - Format `1`, producer `engine.tool: "0.1.0"`, without an `empty_output` setting. Replay supplies the legacy `reject` policy.
-- Format `2`, producers `engine.tool: "0.1.1"` and `"0.1.2"`, with an explicit saved `empty_output` of `reject` or `message`.
+- Format `2`, producers `engine.tool: "0.1.1"`, `"0.1.2"` and `"0.1.3"`, with an explicit saved `empty_output` of `reject` or `message`.
 
 New reports and case bundles use format `2` to record the empty-output contract. Replay checks the format, producer and saved policy together. Unknown or unsupported combinations fail preflight before adapter execution, including a future producer using an otherwise known format number. v0.1.0 cannot read format `2` bundles.
 

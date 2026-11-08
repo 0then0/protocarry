@@ -135,7 +135,7 @@ func (m Manifest) validateContract() error {
 	switch {
 	case m.Format == 1 && m.Engine.Tool == "0.1.0" && m.Config.EmptyOutput == "":
 		return nil // Legacy evidence always rejects empty stdout.
-	case m.Format == 2 && (m.Engine.Tool == "0.1.1" || m.Engine.Tool == "0.1.2") &&
+	case m.Format == 2 && (m.Engine.Tool == "0.1.1" || m.Engine.Tool == "0.1.2" || m.Engine.Tool == "0.1.3") &&
 		(m.Config.EmptyOutput == EmptyOutputReject || m.Config.EmptyOutput == EmptyOutputMessage):
 		return nil
 	default:

@@ -10,7 +10,7 @@ jobs:
     timeout-minutes: 20
     strategy:
       matrix:
-        runner: [macos-15, ubuntu-24.04-arm]
+        runner: [macos-15, macos-15-intel, ubuntu-24.04-arm, ubuntu-24.04]
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v7
@@ -21,11 +21,11 @@ jobs:
       - name: Verify native archive and release version
         run: |
           platform="$(go env GOOS)_$(go env GOARCH)"
-          test "$(bin/release/$platform/protocarry version)" = "ProtoCarry 0.1.2"
-          (cd bin && shasum -a 256 -c "protocarry_0.1.2_${platform}.tar.gz.sha256")
+          test "$(bin/release/$platform/protocarry version)" = "ProtoCarry 0.1.3"
+          (cd bin && shasum -a 256 -c "protocarry_0.1.3_${platform}.tar.gz.sha256")
           mkdir extracted
-          tar -xzf "bin/protocarry_0.1.2_${platform}.tar.gz" -C extracted
-          test "$(extracted/protocarry version)" = "ProtoCarry 0.1.2"
+          tar -xzf "bin/protocarry_0.1.3_${platform}.tar.gz" -C extracted
+          test "$(extracted/protocarry version)" = "ProtoCarry 0.1.3"
       - name: Check tag matches binary version
         if: github.event_name == 'push'
         run: |
@@ -51,14 +51,16 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh run download "$GITHUB_RUN_ID" --name protocarry-macos-15 --dir artifacts/darwin
-          gh run download "$GITHUB_RUN_ID" --name protocarry-ubuntu-24.04-arm --dir artifacts/linux
-          (cd artifacts/darwin && sha256sum -c protocarry_*.tar.gz.sha256)
-          (cd artifacts/linux && sha256sum -c protocarry_*.tar.gz.sha256)
+          gh run download "$GITHUB_RUN_ID" --pattern 'protocarry-*' --dir artifacts
+          test "$(ls -d artifacts/*/ | wc -l)" -eq 4
+          for dir in artifacts/*/; do
+            (cd "$dir" && sha256sum -c protocarry_*.tar.gz.sha256)
+          done
+          test "$(ls artifacts/*/*.tar.gz | wc -l)" -eq 4
       - name: Publish release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" artifacts/darwin/* artifacts/linux/* \
+          gh release create "$GITHUB_REF_NAME" artifacts/*/* \
             --verify-tag --title "ProtoCarry $GITHUB_REF_NAME" \
             --notes-file "docs/releases/$GITHUB_REF_NAME.md"

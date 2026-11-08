@@ -5,7 +5,7 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/0then0/protocarry/ci.yml?branch=main&label=CI)](https://github.com/0then0/protocarry/actions/workflows/ci.yml)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Go](https://img.shields.io/badge/Go-1.27-00ADD8.svg)](go.mod)
-[![Version](https://img.shields.io/badge/version-0.1.2-0f766e.svg)](docs/contract.md)
+[![Version](https://img.shields.io/badge/version-0.1.3-0f766e.svg)](docs/contract.md)
 
 A producer writes a message with schema v2, an application reads and writes it with schema v1, and a consumer reads it with v2. Every step can succeed while a mapper, a fresh object or a JSON conversion loses fields that v1 does not know.
 
@@ -15,7 +15,7 @@ Use it for local correctness testing with your own or prepared fixtures. A findi
 
 ## Install
 
-Download the archive for your platform from [GitHub Releases](https://github.com/0then0/protocarry/releases/latest), verify its SHA-256 checksum and extract it. Native binaries are available for macOS arm64 and Linux arm64. See the [changelog](CHANGELOG.md) for release changes, or build from source below.
+Download the archive for your platform from [GitHub Releases](https://github.com/0then0/protocarry/releases/latest), verify its SHA-256 checksum and extract it. Native binaries are available for macOS arm64 and x64 (Intel), and Linux arm64 and x64. See the [changelog](CHANGELOG.md) for release changes, or build from source below.
 
 ## Quick start
 
@@ -150,7 +150,7 @@ Replay verifies saved hashes and expectations and sends the exact saved input. T
 
 Require exit `0` from this command in your regression test. The input and contract remain unchanged. Application resources are not archived; the selected executable and its dependencies must be available. See [evidence and replay](docs/contract.md#evidence-and-replay) for details.
 
-Version 0.1.2 reads evidence format `1` produced by `0.1.0` and format `2` produced by `0.1.1` or `0.1.2`. Legacy evidence always retains `empty_output: reject`; new evidence saves the effective policy. Replay records the source producer separately from the current engine. Other producer/format combinations are rejected before execution. Compatibility preserves the saved contract, not an outcome across changes to the application or environment.
+Version 0.1.3 reads evidence format `1` produced by `0.1.0` and format `2` produced by `0.1.1`, `0.1.2` or `0.1.3`. Legacy evidence always retains `empty_output: reject`; new evidence saves the effective policy. Replay records the source producer separately from the current engine. Other producer/format combinations are rejected before execution. Compatibility preserves the saved contract, not an outcome across changes to the application or environment.
 
 ## Demo paths
 
@@ -186,7 +186,7 @@ A [runtime conformance suite](https://github.com/protocolbuffers/protobuf/tree/m
 
 ## Platforms and development
 
-Tested CLI and release targets are macOS arm64 and Linux arm64. Process groups provide bounded timeout and pipe cleanup; they do not isolate arbitrary processes or descendants that escape the group. Empty stdout is a transport error under the default `empty_output: reject` contract.
+Tested CLI and release targets are macOS arm64 and x64 (Intel), and Linux arm64 and x64. Windows is not supported. Process groups provide bounded timeout and pipe cleanup; they do not isolate arbitrary processes or descendants that escape the group. Empty stdout is a transport error under the default `empty_output: reject` contract.
 
 For tests, fixture generation, CI and archive preparation, see the [development guide](docs/development.md). Node.js is required only for the external validation tools. ProtoCarry is licensed under [MIT](LICENSE).
 
